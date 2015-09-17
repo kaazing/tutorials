@@ -21,3 +21,8 @@ build
 # Github java basic 
 *.class
 
+
+todo/angularjs/bower_components/**
+todo/angularjs/js/kaazing/**
+todo/angularjs/js/vendor-old/**
+

@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "action": "Get groceries",
+    "complete": false
+  },
+  {
+    "id": 2,
+    "action": "Call plumber",
+    "complete": false
+  },
+  {
+    "id": 3,
+    "action": "Buy running shoes",
+    "complete": false
+  },
+  {
+    "id": 4,
+    "action": "Buy flowers",
+    "complete": false
+  },
+  {
+    "id": 5,
+    "action": "Call family",
+    "complete": false
+  }
+]
