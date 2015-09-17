@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="webSocketApp">
+<head>
+    <title>WebSocket Test Application</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angularjs-scroll-glue/src/scrollglue.js"></script>
+    <script src="bower_components/requirejs/require.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <script src="js/controller/app-amqp.js"></script>
+    <script src="js/kaazing/universal-client/AngularUniversalClient.js"></script>
+</head>
+<body>
+<div id="todoPanel" class="panel" ng-controller="mainCtl">
+    <h3 class="panel-header">To Do List</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Action</th>
+            <th>Done</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in todos" ng-class="data.rowColor">
+            <td>{{$index + 1}}</td>
+            <td>{{item.action}}</td>
+            <td ng-class="getDoneColor(item, $index)" ng-mouseenter="handleMouseoverEvent($event, $index,item)" ng-mouseleave="handleMouseoverEvent($event, $index, item)">
+                <input type="checkbox" ng-model="item.complete" ng-change="itemClicked(item)" ng-disabled="!item.available">
+            </td>
+        </tr>
+    </table>
+    <h4>Local Messages</h4>
+    <div class="msg-container" scroll-glue="glued">
+        <div ng-repeat="message in localMessages">
+            {{message.message}}
+        </div>
+    </div>
+    <h4>WebSocket Messages</h4>
+    <div class="msg-container" scroll-glue="glued">
+        <div ng-repeat="message in webSocketMessages">
+            <p ng-class="message.class">{{message.message}}</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
