@@ -1,0 +1,13 @@
+{
+  "name": "Kaazing JavaScript TODO Tutorial",
+  "description": "TODO JavaScript Application using Kaazing JMS and AMQP gateways tutorial",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kaazing/tutorials/tree/develop/todo/javascript",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "requirejs":"",
+    "jquery":"",
+    "bootstrap": ""
+  }
+}

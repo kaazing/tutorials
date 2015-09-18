@@ -1,0 +1,57 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+tr.Red {background-color: lightcoral;}
+tr.Green {background-color: lightgreen;}
+tr.Blue {background-color: lightblue;}
+
+.Gray {background-color: lightgray;}
+.Yellow {background-color: lightgoldenrodyellow}
+.Blue {background-color: lightblue;}
+
+.Done {background-color: lightgreen;}
+.NotDone {background-color: lightcoral;}
+.MouseOverNotDone {background-color: lightsalmon}
+.MouseOverDone {background-color: lavender;}
+.Busy {background-color: gray;}
+
+.msg-container {
+    width: 80%;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+
+.msg-error {color:red}
+.msg-info {color:blue}
+.msg-sent {color:goldenrod}
+.msg-received {color:green}
+
