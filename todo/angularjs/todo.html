@@ -5,12 +5,13 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angularjs-scroll-glue/src/scrollglue.js"></script>
     <script src="bower_components/requirejs/require.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet"/>
-    <script src="js/controller/app-jms.js"></script>
     <!-- Unfortunately, the library uses document.write that prevents it from being loaded dynamically!!! -->
     <script src="js/kaazing/library/JmsClient.js"></script>
+    <script src="js/controller/app.js"></script>
     <script src="js/kaazing/universal-client/AngularUniversalClient.js"></script>
 </head>
 <body>
@@ -24,10 +25,10 @@
             <th>Done</th>
         </tr>
         </thead>
-        <tr ng-repeat="item in todos" ng-class="data.rowColor">
-            <td>{{$index + 1}}</td>
+        <tr ng-repeat="item in todos" class="Blue">
+            <td>{{item.id}}</td>
             <td>{{item.action}}</td>
-            <td ng-class="getDoneColor(item, $index)" ng-mouseenter="handleMouseoverEvent($event, $index,item)" ng-mouseleave="handleMouseoverEvent($event, $index, item)">
+            <td ng-class="getDoneColor(item)" ng-mouseenter="handleMouseoverEvent($event, item)" ng-mouseleave="handleMouseoverEvent($event, item)">
                 <input type="checkbox" ng-model="item.complete" ng-change="itemClicked(item)" ng-disabled="!item.available">
             </td>
         </tr>
