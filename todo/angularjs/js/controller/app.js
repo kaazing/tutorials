@@ -15,7 +15,7 @@ angular.module("webSocketApp", ['KaazingClientService'])
         username: "",
         password: ""
     })
-    .controller("mainCtl", function ($scope, $log, $timeout, $http, amqpWebSocketConfig, jmsWebSocketConfig,UniversalClient, $location) {
+    .controller("mainCtl", function ($scope, $log, $timeout, $http, amqpWebSocketConfig, jmsWebSocketConfig,AngularUniversalClient) {
         $http.get('data/todo.json').
             success(function(data, status, headers, config) {
                 $scope.todos = data;
@@ -125,10 +125,10 @@ angular.module("webSocketApp", ['KaazingClientService'])
         $scope.protocol=window.location.search.replace("?", "").split("&")[0];
         // TODO: Connect to the wire
         if ($scope.protocol=="amqp") {
-            UniversalClient.connect("amqp",amqpWebSocketConfig.URL,amqpWebSocketConfig.username, amqpWebSocketConfig.password, amqpWebSocketConfig.TOPIC_PUB, amqpWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage );
+            AngularUniversalClient.connect("amqp",amqpWebSocketConfig.URL,amqpWebSocketConfig.username, amqpWebSocketConfig.password, amqpWebSocketConfig.TOPIC_PUB, amqpWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage );
         }
         else if ($scope.protocol=="jms") {
-            UniversalClient.connect("jms",jmsWebSocketConfig.URL,jmsWebSocketConfig.username, jmsWebSocketConfig.password, jmsWebSocketConfig.TOPIC_PUB, jmsWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage );
+            AngularUniversalClient.connect("jms",jmsWebSocketConfig.URL,jmsWebSocketConfig.username, jmsWebSocketConfig.password, jmsWebSocketConfig.TOPIC_PUB, jmsWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage );
         }
         else{
             alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
@@ -136,12 +136,12 @@ angular.module("webSocketApp", ['KaazingClientService'])
 
         $scope.sendMessage = function(msg){
             // TODO: Send the message
-            UniversalClient.sendMessage(msg);
+            AngularUniversalClient.sendMessage(msg);
         }
 
         $( window ).unload(function() {
             // TODO: Disconnect
-            UniversalClient.disconnect();
+            AngularUniversalClient.disconnect();
         });
     })
 ;
