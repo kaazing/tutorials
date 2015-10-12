@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "requirejs":"",
     "jquery":"",
-    "bootstrap": ""
+    "bootstrap": "",
+    "kaazing-javascript-universal-client":""
   }
 }
