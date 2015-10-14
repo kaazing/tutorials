@@ -15,6 +15,7 @@ angular.module('todomvc')
 		}
 
 		$scope.client="client"+getRandomInt(1,10000000);
+		$log.info("Client ID: "+$scope.client);
 		$scope.newTodo = '';
 		$scope.editedTodo = null;
 
@@ -81,6 +82,7 @@ angular.module('todomvc')
 					$scope.saving = true;
 					store.init(cmd.items)
 						.then(function success() {
+							$log.info("Initialized!");
 						})
 						.finally(function () {
 							$scope.saving = false;
@@ -89,15 +91,17 @@ angular.module('todomvc')
 			}
 		}
 
-		// Connect to WebSocket
-		AngularUniversalClient.connect("amqp",todoMvcWebSocketConfig.URL,todoMvcWebSocketConfig.username, todoMvcWebSocketConfig.password, todoMvcWebSocketConfig.TOPIC_PUB, todoMvcWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage );
-		$timeout(function(){
+		$scope.loadData=function(){
 			var msg={
 				command:"init",
 				client:$scope.client
 			}
 			AngularUniversalClient.sendMessage(msg);
-		},500);
+			$log.info("Sent initialization!");
+		}
+
+		// Connect to WebSocket
+		AngularUniversalClient.connect("amqp",todoMvcWebSocketConfig.URL,todoMvcWebSocketConfig.username, todoMvcWebSocketConfig.password, todoMvcWebSocketConfig.TOPIC_PUB, todoMvcWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage, $scope.loadData);
 
 
 		$scope.addTodo = function () {

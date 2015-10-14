@@ -52,6 +52,7 @@ amqp.connect('amqp://localhost:5672').then(function(conn) {
 					}
 
 					ch.publish("todomvc", '', new Buffer(JSON.stringify(retCmd)));
+					console.log("Sent initialization data to "+cmd.client);
 				}
 				catch(e){
 					console.log("Error "+e);
