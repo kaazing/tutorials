@@ -27,6 +27,4 @@ todo/angularjs/js/kaazing/**
 todo/javascript/bower_components/**
 todo/javascript/js/kaazing/**
 todomvc/bower_components/**
-
-
-todomvc/bower_components/angular-resource/.bower.json
+todomvc/saved/**

@@ -101,7 +101,7 @@ angular.module('todomvc')
 		}
 
 		// Connect to WebSocket
-		AngularUniversalClient.connect("amqp",todoMvcWebSocketConfig.URL,todoMvcWebSocketConfig.username, todoMvcWebSocketConfig.password, todoMvcWebSocketConfig.TOPIC_PUB, todoMvcWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage, $scope.loadData);
+		AngularUniversalClient.connect("amqp",todoMvcWebSocketConfig.URL,todoMvcWebSocketConfig.username, todoMvcWebSocketConfig.password, todoMvcWebSocketConfig.TOPIC_PUB, todoMvcWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage,function(e){alert(e);}, $scope.loadData);
 
 
 		$scope.addTodo = function () {
