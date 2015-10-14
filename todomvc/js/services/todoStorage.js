@@ -110,7 +110,20 @@ angular.module('todomvc')
 				deferred.resolve(store.todos);
 
 				return deferred.promise;
+			},
+
+			init: function (todos) {
+				var deferred = $q.defer();
+				for(var i=0;i<todos.length;i++)
+					store.todos.push(todos[i]);
+
+				store._saveToLocalStorage(store.todos);
+				deferred.resolve(store.todos);
+
+				return deferred.promise;
 			}
+
+
 		};
 
 		return store;
