@@ -26,4 +26,5 @@ todo/angularjs/bower_components/**
 todo/angularjs/js/kaazing/**
 todo/javascript/bower_components/**
 todo/javascript/js/kaazing/**
-
+todomvc/bower_components/**
+todomvc/saved/**
