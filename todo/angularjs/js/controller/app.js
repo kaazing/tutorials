@@ -125,10 +125,10 @@ angular.module("webSocketApp", ['KaazingClientService'])
         $scope.protocol=window.location.search.replace("?", "").split("&")[0];
         // TODO: Connect to the wire
         if ($scope.protocol=="amqp") {
-            AngularUniversalClient.connect("amqp",amqpWebSocketConfig.URL,amqpWebSocketConfig.username, amqpWebSocketConfig.password, amqpWebSocketConfig.TOPIC_PUB, amqpWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage );
+            AngularUniversalClient.connect("amqp",amqpWebSocketConfig.URL,amqpWebSocketConfig.username, amqpWebSocketConfig.password, amqpWebSocketConfig.TOPIC_PUB, amqpWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(err){alert(err);}, $scope.logWebSocketMessage, null );
         }
         else if ($scope.protocol=="jms") {
-            AngularUniversalClient.connect("jms",jmsWebSocketConfig.URL,jmsWebSocketConfig.username, jmsWebSocketConfig.password, jmsWebSocketConfig.TOPIC_PUB, jmsWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, $scope.logWebSocketMessage );
+            AngularUniversalClient.connect("jms",jmsWebSocketConfig.URL,jmsWebSocketConfig.username, jmsWebSocketConfig.password, jmsWebSocketConfig.TOPIC_PUB, jmsWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(err){alert(err);}, $scope.logWebSocketMessage, null );
         }
         else{
             alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
