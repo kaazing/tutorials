@@ -52,9 +52,11 @@ and replace them with
 - Install required packages:
 
 ```bash
+cd <application directory>
 npm install amqplib
 npm install express
 npm install http
+bower install
 ```
 
 - Start the application
