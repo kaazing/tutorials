@@ -78,6 +78,6 @@ node serverampqio.js
 [7]:	http://developer.kaazing.com/forums/
 [8]:	http://blog.kaazing.com/
 [9]:	http://developer.kaazing.com/documentation/faq.html
-[10]:	https://github.com/tastejs/todomvc/issues
+[10]:	https://github.com/kaazing/tutorials/issues
 [11]:	http://developer.kaazing.com/downloads/amqp-edition-download/
 [12]:	https://qpid.apache.org/
