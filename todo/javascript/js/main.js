@@ -164,7 +164,7 @@ $(document).ready(function () {
             sendCommand(item, "available");
         });
 
-        client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true, processReceivedCommand,logWebSocketMessage);
+        client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true, processReceivedCommand,function(err){alert(err);}, logWebSocketMessage, null);
         $( window ).unload(function() {
             // TODO: Disconnect
             client.disconnect();
