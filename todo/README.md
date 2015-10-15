@@ -8,8 +8,8 @@ Application loads 5 todo items from JSON file and notifies other users when
 Application uses [Kaazing Universal Clients for Javascript][1] open source library.
 
 For technology specific implementations see:
-- Javascript implementation
-- AngularJS implementation  
+- [Javascript implementation][10]
+- [AngularJS implementation][11]
 
 ## Obtaining and configuring Kaazing Gateways and related Servers
 TODO application depend on the Kaazing WebSocket Gateway (KWG) being installed on one or more servers. KWG supports two protocols, AMQP and JMS.
@@ -64,3 +64,5 @@ and replace them with
 [6]:	https://qpid.apache.org/
 [7]:	http://developer.kaazing.com/downloads/jms-edition-download/
 [8]:	http://activemq.apache.org/
+[10]:	https://github.com/kaazing/tutorials/tree/develop/todo/javascript
+[11]:	https://github.com/kaazing/tutorials/tree/develop/todo/angularjs
