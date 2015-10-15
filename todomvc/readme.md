@@ -1,45 +1,81 @@
-# AngularJS TodoMVC Example
+# Kaazing Javascript & AngularJS TodoMVC Example
 
-> HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop.
+> Kaazing is the world's most scalable, secure, and robust WebSocket platform for real-time Web communication
 
-> _[AngularJS - angularjs.org](http://angularjs.org)_
+> _[Kaazing - kaazing.com][1]_
 
 
-## Learning AngularJS
-The [AngularJS website](http://angularjs.org) is a great resource for getting started.
+## Using Kaazing Technology
+The [Kaazing Developers website][2] is a great resource for getting started.
 
 Here are some links you may find helpful:
 
-* [Tutorial](http://docs.angularjs.org/tutorial)
-* [API Reference](http://docs.angularjs.org/api)
-* [Developer Guide](http://docs.angularjs.org/guide)
-* [Applications built with AngularJS](https://www.madewithangular.com/)
-* [Blog](http://blog.angularjs.org)
-* [FAQ](http://docs.angularjs.org/misc/faq)
-* [AngularJS Meetups](http://www.youtube.com/angularjs)
+* [WebSockets][3]
+* [Kaazing Universal Client for Javascript][4]
+* [API Reference][5]
+* [Using Kaazing JavaScript AMQP Clients][6]
+* [Forums][7]
+* [Blog][8]
+* [FAQ][9]
 
-Articles and guides from the community:
 
-* [Code School AngularJS course](https://www.codeschool.com/courses/shaping-up-with-angular-js)
-* [5 Awesome AngularJS Features](http://net.tutsplus.com/tutorials/javascript-ajax/5-awesome-angularjs-features)
-* [Using Yeoman with AngularJS](http://briantford.com/blog/angular-yeoman.html)
-* [me&ngular - an introduction to MVW](http://stephenplusplus.github.io/meangular)
+_If you have other helpful links to share, or find any of the links above no longer work, please [let us know][10]._
 
-Get help from other AngularJS users:
+## Implementation
+Kaazing WebSocket enables Web application to use publish/subscribe model. Application notifies other instances when
+- Item is created
+- Item is complete/incomplete
+- Item text is modified
+- Item is ‘busy’ - somebody is working on it to help dealing with the race conditions.
 
-* [Walkthroughs and Tutorials on YouTube](http://www.youtube.com/playlist?list=PL1w1q3fL4pmgqpzb-XhG7Clgi67d_OHXz)
-* [Google Groups mailing list](https://groups.google.com/forum/?fromgroups#!forum/angular)
-* [angularjs on Stack Overflow](http://stackoverflow.com/questions/tagged/angularjs)
-* [AngularJS on Twitter](https://twitter.com/angularjs)
-* [AngularjS on Google +](https://plus.google.com/+AngularJS/posts)
+Application also contains NodeJS backend components that connects to AMQP server and receives all messages thus maintaining the current state of the items. Once the connection is established Web clients can obtain all the items in their current state by sending initialization request.
 
-_If you have other helpful links to share, or find any of the links above no longer work, please [let us know](https://github.com/tastejs/todomvc/issues)._
+## Installing Kaazing AMQP Gateway
+- Download AMQP Gateway (Gateway + Documentation + Demos) from  [AMQP Gateway downloads page][11] as a ZIP file
+	**This package also contains AMQP server Apache QPID** see - [Apache QPID][12] for more information.
+- Unzip downloaded package to _\<your installation directory\>_
+- **_By default Gateway is configured not to restrict communications only from the scripts that are running on its embedded servers_** which may not be convenient for Web Development. In order to disable it
+	- Go to _\<your installation directory\>/kaazing-websocket-gateway-amqp-4.0.6/conf _
+	- Edit __gateway\_config.xml__
+	- Locate lines  
+		_\<allow-origin>http://${gateway.hostname}:${gateway.extras.port}\</allow-origin>_
+and replace them with 
+		_\<allow-origin>\*\</allow-origin>_
+	- Make sure that you have Java 7 or greater installed
+	- Open terminal window at _\<your installation directory\>/kaazing-websocket-gateway-amqp-4.0.6/bin_ and start gateway  
+		`./gateway.start`
+	- Open terminal window at _\<your installation directory\>/qpid-java-broker-0.28/bin_ and start Apache QPID AMQP server  
+		`./qpid-server`
+	- **Note**: to stop both Gateway and AMQP server just execute _Ctrl-C_ on the relevant terminal windows or just close them.  
+## Running the application
+- Install NodeJS as specified at [NodeJS Site][https://nodejs.org/en/]
+- Install required packages:
 
-## Testsuite
-
-The app uses [Karma](http://karma-runner.github.io/0.12/index.html) to run the tests located in the `test/` folder. To run the tests:
-
+```bash
+npm install amqplib
+npm install express
+npm install http
 ```
-$ npm install
-$ npm test
+
+- Start the application
+
+```bash
+node serverampqio.js
 ```
+
+- Test the application - open multiple instances of browser on http://localhost:5000
+
+
+
+[1]:	http://kaazing.com/
+[2]:	http://developer.kaazing.com/
+[3]:	http://websocket.org
+[4]:	https://github.com/kaazing/universal-client/tree/develop/javascript
+[5]:	http://developer.kaazing.com/documentation/amqp/4.0/apidoc/client/javascript/amqp/index.html
+[6]:	http://developer.kaazing.com/documentation/amqp/4.0/dev-js/p_dev_js_client.html
+[7]:	http://developer.kaazing.com/forums/
+[8]:	http://blog.kaazing.com/
+[9]:	http://developer.kaazing.com/documentation/faq.html
+[10]:	https://github.com/tastejs/todomvc/issues
+[11]:	http://developer.kaazing.com/downloads/amqp-edition-download/
+[12]:	https://qpid.apache.org/
