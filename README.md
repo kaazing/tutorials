@@ -1,4 +1,4 @@
-# Kaazing Tutorials
+# Kaazing Examples and Tutorials
 
 This repository contains samples of simple applications created for different client environments that use Kaazing technology.
 
