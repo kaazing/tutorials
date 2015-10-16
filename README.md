@@ -10,8 +10,8 @@ This repository contains samples of simple applications created for different cl
 For more information about using Kaazing gateway and client development visit [http://developer.kaazing.com/][2]
 
 For more information about brokers:
-- AMQP Protocol: [https://www.rabbitmq.com/tutorials/amqp-concepts.html][3]
-- JMS: [https://en.wikipedia.org/wiki/Java\_Message\_Service][4]
+- [AMQP Protocol][3]
+- [JMS][4]
 
 [1]:	http://todomvc.com/
 [2]:	http://developer.kaazing.com/
