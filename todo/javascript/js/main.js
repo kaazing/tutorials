@@ -19,7 +19,7 @@ var createTable=function(items){
 
 var selectedItemIndex=-1;
 
-var getDoneColor = function (item) {œ
+var getDoneColor = function (item) {
     if (!item.available) {
         return "Busy";
     }
