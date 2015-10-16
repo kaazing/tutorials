@@ -1,14 +1,16 @@
+# Shared TODO Application using plain Javascript
 
-This repository contains simple TODO application written using plain Javascript that can be used with Kaazing AMQP or JMS brokers.
+This repository contains a tutorial for writing simple TODO application written using with Javascript and jQuery that can be used with Kaazing AMQP or JMS brokers.
 
-Application loads 5 todo items from JSON file and notifies other users when
-- Item is marked complete/incomplete
-- Item is being worked on by one client as being disabled on the others
+The application loads 5 todo items from JSON file and notifies other users when
+- An item is marked complete/incomplete
+- An item is being edited by one client. This disables editing on all other clients.
 
-Application uses [Kaazing Universal Clients for Javascript][1] open source library - for specifics how to use the library with plain Javascript see [Kaazing JavaScript Universal Client for Javascript][2]
+The application uses the [Kaazing Universal Clients for Javascript][1] open source library - for specifics how to use the library with plain Javascript see [Kaazing JavaScript Universal Client for Javascript][2]
 
 [1]:	https://github.com/kaazing/universal-client/tree/develop/javascript
 [2]:	https://github.com/kaazing/universal-client/blob/develop/javascript/JavaScriptClient.md
+<<<<<<< HEAD
 
 ## Tutorial
 In this tutorial we will guide you through development of a simple shared TODO application using [AngularJS](http://angularjs.org). We assume that you are familiar with AngularJS framework and will mostly focus on WebSocket-related features of an application.
@@ -476,3 +478,4 @@ or
 
 **Note:**
 Default configuration for JMS and AMQP gateways uses the same port 8001 so you cannot run them at the same time. 
+

@@ -1,24 +1,24 @@
 # TODO Application
 This repository contains simple TODO application that can be used with Kaazing AMQP or JMS brokers.
 
-Application loads 5 todo items from JSON file and notifies other users when
-- Item is marked complete/incomplete
-- Item is being worked on by one client as being disabled on the others
+The application loads 5 todo items from a JSON file and notifies other users when
+- An item is marked complete/incomplete
+- An item is being edited by another client. This causes edits to be disabled on all other clients.
 
-Application uses [Kaazing Universal Clients for Javascript][1] open source library.
+The application uses the [Kaazing Universal Clients for Javascript][1] open source library.
 
 For technology specific implementations see:
-- [Javascript implementation][10]
-- [AngularJS implementation][11]
+- [Javascript][10]
+- [AngularJS][11]
 
 ## Obtaining and configuring Kaazing Gateways and related Servers
-TODO application depend on the Kaazing WebSocket Gateway (KWG) being installed on one or more servers. KWG supports two protocols, AMQP and JMS.
+The TODO application requires that the Kaazing WebSocket Gateway (KWG) be installed on one or more servers. KWG supports two protocols, AMQP and JMS.
 
 ### AMQP
 - Download AMQP Gateway (Gateway + Documentation + Demos) from  [AMQP Gateway downloads page][5] as a ZIP file
-	**This package also contains AMQP server Apache QPID** see - [Apache QPID][6] for more information.
+	**This package also contains AMQP server Apache QPID**, see - [Apache QPID][6] for more information.
 - Unzip downloaded package to _\<your installation directory\>_
-- **_By default Gateway is configured not to restrict communications only from the scripts that are running on its embedded servers_** which may not be convenient for Web Development. In order to disable it
+- **_By default Gateway is configured to restrict communications only to/from the scripts that are running on its embedded servers_**. This may not be convenient for Web Development. In order to remove this restriction, please:
 	- Go to _\<your installation directory\>/kaazing-websocket-gateway-amqp-4.0.6/conf _
 	- Edit __gateway\_config.xml__
 	- Locate lines  
@@ -36,9 +36,9 @@ and replace them with
 
 ### JMS
 - Download JMS Gateway (Gateway + Demos) from  [JMS Gateway Download Site][7] as a ZIP file
-	**This package also contains JMS server Apache ActiveMQ** see - [Apache ActiveMQ][8] for more information.
+	**This package also contains JMS server Apache ActiveMQ**, see - [Apache ActiveMQ][8] for more information.
 - Unzip downloaded package to _\<your installation directory\>_
-- **_By default Gateway is configured not to restrict communications only from the scripts that are running on its embedded servers_** which may not be convenient for Web Development. In order to disable it
+- **_By default Gateway is configured to restrict communications only to/from the scripts that are running on its embedded servers_**. This may not be convenient for Web Development. In order to remove this restriction, please:
 	- Goto _\<your installation directory\>/kaazing-websocket-gateway-jms-4.0.9/conf _
 	- Open __gateway\_config.xml__
 	- Locate lines  
