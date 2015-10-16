@@ -10,7 +10,6 @@ The application uses the [Kaazing Universal Clients for Javascript][1] open sour
 
 [1]:	https://github.com/kaazing/universal-client/tree/develop/javascript
 [2]:	https://github.com/kaazing/universal-client/blob/develop/javascript/JavaScriptClient.md
-<<<<<<< HEAD
 
 ## Tutorial
 In this tutorial we will guide you through development of a simple shared TODO application using [AngularJS](http://angularjs.org). We assume that you are familiar with AngularJS framework and will mostly focus on WebSocket-related features of an application.
