@@ -9,9 +9,17 @@ var createTableRow = function (item) {
     return row;
 }
 
+var createTable=function(items){
+	for(var i=0;i<items.length;i++){
+		var row=createTableRow(items[i]);
+		$('#todoTable > tbody:last-child').append(row);
+	}
+}
+
+
 var selectedItemIndex=-1;
 
-var getDoneColor = function (item) {
+var getDoneColor = function (item) {œ
     if (!item.available) {
         return "Busy";
     }
@@ -32,12 +40,6 @@ var getDoneColor = function (item) {
 var setItemColor=function(item){
     $('#'+item.id+".action").removeClass().addClass('action').addClass(getDoneColor(item));
 }
-var createTable=function(items){
-    for(var i=0;i<items.length;i++){
-        var row=createTableRow(items[i]);
-        $('#todoTable > tbody:last-child').append(row);
-    }
-}
 
 var todos=null;
 
@@ -50,45 +52,21 @@ var findItem=function(id){
     return null;
 }
 
-var protocol=window.location.search.replace("?", "").split("&")[0];
 
-var client=UniversalClientDef(protocol);
-var connectionInfo=null;
-if (protocol=="amqp") {
-    connectionInfo = {
-        URL: "ws://localhost:8001/amqp",
-        TOPIC_PUB: "todo",
-        TOPIC_SUB: "todo",
-        username: "guest",
-        password: "guest"
-    };
-}
-else if (protocol=="jms") {
-    connectionInfo = {
-        URL: "ws://localhost:8001/jms",
-        TOPIC_PUB: "/topic/Todo",
-        TOPIC_SUB: "/topic/Todo",
-        username: "",
-        password: ""
-    };
-}
-else{
-    alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
+
+
+var itemClicked = function (item) {
+	var msg = "Item " + item.id + " is now " + ((item.complete) ? "completed" : "incompleted!");
+	console.info(msg);
+
+	$('#localMessages').append("<div>"+msg+"</div>");
+
+	//Send command "complete" or "incomplete" for this item
+	sendCommand(item, ((item.complete) ? "complete" : "incomplete"));
 }
 
-
-
-var sendMessage=function(msg){
-    client.sendMessage(msg);
-}
-
-var sendCommand=function(item, command){
-    var cmd = {
-        command: command,
-        item: item.id
-    }
-
-    sendMessage(cmd);
+var checkItem=function(item){
+	$(":checkbox").filter("#"+item.id).prop('checked', item.complete);
 }
 
 
@@ -100,38 +78,69 @@ var logWebSocketMessage = function (cls, msg) {
     $('#wsMessages').append("<div class='msg-"+cls+"'>"+msg+"</div>");
 }
 
-var checkItem=function(item){
-    $(":checkbox").filter("#"+item.id).prop('checked', item.complete);
+
+var sendCommand=function(item, command){
+	var cmd = {
+		command: command,
+		item: item.id
+	}
+
+	sendMessage(cmd);
 }
+
 
 var processReceivedCommand=function(cmd){
-    logWebSocketMessage("received","Received command: "+cmd.command+", item id: "+cmd.item)
-    var item=findItem(cmd.item);
-    if (cmd.command==="busy"){
-        item.available=false;
-    }
-    else if (cmd.command==="available"){
-        item.available=true;
-    }
-    else if (cmd.command==="complete"){
-        item.complete=true;
-    }
-    else if (cmd.command==="incomplete"){
-        item.complete=false;
-    }
-    setItemColor(item);
-    checkItem(item);
+	logWebSocketMessage("received","Received command: "+cmd.command+", item id: "+cmd.item)
+	var item=findItem(cmd.item);
+	if (cmd.command==="busy"){
+		item.available=false;
+	}
+	else if (cmd.command==="available"){
+		item.available=true;
+	}
+	else if (cmd.command==="complete"){
+		item.complete=true;
+	}
+	else if (cmd.command==="incomplete"){
+		item.complete=false;
+	}
+	setItemColor(item);
+	checkItem(item);
 
 }
 
-var itemClicked = function (item) {
-    var msg = "Item " + item.id + " is now " + ((item.complete) ? "completed" : "incompleted!");
-    console.info(msg);
 
-    $('#localMessages').append("<div>"+msg+"</div>");
 
-    //Send command "complete" or "incomplete" for this item
-    sendCommand(item, ((item.complete) ? "complete" : "incomplete"));
+//TODO: Add code to create client
+var protocol=window.location.search.replace("?", "").split("&")[0];
+
+var client=UniversalClientDef(protocol);
+var connectionInfo=null;
+if (protocol=="amqp") {
+	connectionInfo = {
+		URL: "ws://localhost:8001/amqp",
+		TOPIC_PUB: "todo",
+		TOPIC_SUB: "todo",
+		username: "guest",
+		password: "guest"
+	};
+}
+else if (protocol=="jms") {
+	connectionInfo = {
+		URL: "ws://localhost:8001/jms",
+		TOPIC_PUB: "/topic/Todo",
+		TOPIC_SUB: "/topic/Todo",
+		username: "",
+		password: ""
+	};
+}
+else{
+	alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
+}
+
+var sendMessage=function(msg){
+	// TODO: Add code to send messages
+	client.sendMessage(msg);
 }
 
 $(document).ready(function () {
@@ -164,6 +173,7 @@ $(document).ready(function () {
             sendCommand(item, "available");
         });
 
+		//TODO: Add code to connect
         client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true, processReceivedCommand,function(err){alert(err);}, logWebSocketMessage, null);
         $( window ).unload(function() {
             // TODO: Disconnect

@@ -143,5 +143,4 @@ angular.module("webSocketApp", ['KaazingClientService'])
             // TODO: Disconnect
             AngularUniversalClient.disconnect();
         });
-    })
-;
+    });
