@@ -1,6 +1,6 @@
 # Kaazing Examples and Tutorials
 
-This repository contains samples of simple applications created for different client environments that use Kaazing websocket technology.
+This repository contains tutorials and samples of simple applications created for different client environments that use Kaazing websocket technology.
 
 * [Simple TODO application][5] using JMS or AMQP brokers.
 	* [Javascript][7]
