@@ -117,7 +117,7 @@ bower install
 
 	```
 	
-	As you can see, the page consists of a table of items with checkboxes - that is where Todo items will go and two divs to log events.
+	As you can see, the page consists of a table of items with checkboxes - that is where Todo items will go and two divs œto log events.
 
 2. Create _root_/css/app.css - the stylesheet for the application
 
@@ -367,13 +367,13 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
 
 	```
 	
-	As you can see from the code above function received and object that contains _command_ and _item_ (that contains id), locate the matching item and executes the command that could be \
+	As you can see from the code above function received and object that contains _command_ and _item_ (that contains id), locate the matching item and executes the command that could be:
 	- 'busy' : somebody is working on the item (their mouse is over it).
 	- 'available' : item is no longer worked on 
 	- 'complete' : item is checked
 	- 'incomplete' : item is unchecked
 	
-4. Now we need to establish connection with the Gateway. First we will detect which protocol to use (by using the first URL parameter and then establish appropriate connection):
+4. Now we need to establish connection with the Gateway. First we will detect which protocol to use (by using the first URL parameter) and then establish appropriate connection:
 	
 	```javascript
 	...
@@ -390,7 +390,7 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
         }
 	...
 	```
-	As you can see we pass the to universal client the following parameters
+	As you can see we pass to the Universal Client the following parameters
 		- protocol to use amqp/jms
 		- URL
 		- user name
