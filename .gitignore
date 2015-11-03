@@ -28,5 +28,8 @@ todo/javascript/bower_components/**
 todo/javascript/js/kaazing/**
 todomvc/bower_components/**
 todomvc/saved/**
+todomvcrest/bower_components/**
 
 *.plist
+
+todomvcrest/restapi/**
