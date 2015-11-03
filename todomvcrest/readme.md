@@ -1,4 +1,4 @@
-# Kaazing Javascript & AngularJS TodoMVC Example
+# Kaazing Javascript & AngularJS TodoMVC Example 
 
 > Kaazing is the world's most scalable, secure, and robust WebSocket platform for real-time Web communication
 

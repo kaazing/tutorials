@@ -33,53 +33,6 @@ angular.module('todomvc')
 				{ completed: true } : {};
 		});
 
-		$scope.logWebSocketMessage=function(severity, msg){
-			if (severity === undefined || severity == null)
-				severity = "info";
-			severity=severity.toLowerCase();
-			if (severity==="debug")
-				$log.debug(msg);
-			else if (severity==="info")
-				$log.info(msg);
-			else if (severity==="warn")
-				$log.warn(msg);
-			else if (severity==="error")
-				$log.error(msg);
-		}
-
-
-		$scope.processMessage=function(command, item){
-			$log.info("Received command "+command);
-			if (command==="insert"){
-				$scope.saving = true;
-				store.insert(item)
-					.then(function success() {
-					})
-					.finally(function () {
-						$scope.saving = false;
-					});
-			}
-			else if (command==="remove"){
-				$scope.saving = true;
-				store.delete(item)
-					.then(function success() {
-					})
-					.finally(function () {
-						$scope.saving = false;
-					});
-			}
-			else if (command==="update"){
-				$scope.saving = true;
-				store.insert(item)
-						.then(function success() {
-						})
-						.finally(function () {
-							$scope.saving = false;
-						});
-			}
-		};
-
-
 		// Connect to WebSocket
 		var connInfo={
 			protocol:"amqp",
