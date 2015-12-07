@@ -69,7 +69,7 @@ angular.module('todomvc')
 						});
 			}).on.error(function(error){
 				alert("Error! "+error);
-			})
+			});
 			$scope.wsRest.get($scope.client).then(function(cmd){
 				if (cmd.client===$scope.client){
 					$scope.saving = true;
