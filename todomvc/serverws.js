@@ -1,5 +1,5 @@
 var amqp = require('amqplib');
-var io=require('./socketioalt.js')('amqp://localhost:5672');
+var io=require('./node/socketioalt.js')('amqp://localhost:5672');
 var express=require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -11,9 +11,8 @@ app.use(express.static(__dirname));
 
 var todos=[];
 var socket=null;
-function processMessage(msg) {
-	var cmd = JSON.parse(msg.content.toString());
-	console.log("Command: " + cmd.command + ", Received: " + msg.content.toString());
+function processMessage(cmd) {
+	console.log("Command: " + cmd.command + ", Received: " + cmd);
 	if (cmd.command === "insert") {
 		todos.push(cmd.item);
 	}
@@ -43,7 +42,7 @@ function processMessage(msg) {
 				items: todos
 			}
 
-			socket.emit.broadcast("todomvc",JSON.stringify(retCmd));
+			socket.emit("todomvc",retCmd);
 			console.log("Sent initialization data to " + cmd.client);
 		}
 		catch (e) {
@@ -52,11 +51,16 @@ function processMessage(msg) {
 	}
 }
 
-io.on("connection", function(s){
+
+io.on('connection', function(s){
+	console.log('a user connected');
 	socket=s;
-	socket.on("todomvc", processMessage);
+	s.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+	s.on('todomvc', processMessage);
 });
 
-http.listen(5000, function(){
-	console.log('listening on *:5000');
+http.listen(3000, function(){
+	console.log('listening on *:3000');
 });

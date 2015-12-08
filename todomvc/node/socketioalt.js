@@ -17,17 +17,26 @@ var socket=function(ch){
 				});
 			});
 			ok = ok.then(function(queue) {
-				return ch.consume(queue, callback, {noAck: true, noLocal:true});
+				return ch.consume(queue, function(msg){
+					var cmd = JSON.parse(msg.content.toString());
+					callback(cmd);
+				}, {noAck: true, noLocal:true});
 			});
 			return ok.then(function() {
 				console.log('[*] Waiting for data on endpoint '+endpoint+'. To exit press CTRL+C');
 			});
 		},
-		emit:{
-			broadcast:function(endpoint, msg){
+		broadcast:{
+			emit:function(endpoint, cmd){
+				var msg=JSON.stringify(cmd)
 				console.info("Broacasting to "+endpoint+" message "+msg);
 				channel.publish(endpoint, '', new Buffer(msg));
 			}
+		},
+		emit:function(endpoint, cmd){
+			var msg=JSON.stringify(cmd);
+			console.info("Sending to "+endpoint+" message "+msg);
+			channel.publish(endpoint, '', new Buffer(msg));
 		}
 	}
 }
