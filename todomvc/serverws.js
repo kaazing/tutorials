@@ -55,9 +55,6 @@ function processMessage(cmd) {
 io.on('connection', function(s){
 	console.log('a user connected');
 	socket=s;
-	s.on('disconnect', function(){
-		console.log('user disconnected');
-	});
 	s.on('todomvc', processMessage);
 });
 
