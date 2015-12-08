@@ -29,11 +29,4 @@ angular.module('todomvc', ['ngRoute', 'ngResource'])
 			.otherwise({
 				redirectTo: '/'
 			});
-	})
-	.constant('todoMvcWebSocketConfig', {
-		URL: "ws://localhost:8001/amqp",
-		TOPIC_PUB: "todomvc",
-		TOPIC_SUB: "todomvc",
-		username: "guest",
-		password: "guest"
 	});

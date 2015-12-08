@@ -56,12 +56,12 @@ function processMessage(cmd) {
 
 
 io.on('connection', function(s){
-    	console.log('a user connected');
-		socket=s;
-    	s.on('disconnect', function(){
-        	console.log('user disconnected');
-    	});
-    	s.on('todomvc-rcv', processMessage);
+	console.log('a user connected');
+	socket=s;
+	s.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+	s.on('todomvc-rcv', processMessage);
 });
 
 http.listen(3000, function(){
