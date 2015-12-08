@@ -1,21 +1,21 @@
-var amqp = require('amqplib');
-var io=require('./socketioalt.js')('amqp://localhost:5672');
 var express=require('express');
 var app = express();
 var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 app.use(express.static(__dirname+'bower_components'));
+app.use(express.static(__dirname+'data'));
 app.use(express.static(__dirname+'css'));
 app.use(express.static(__dirname+'js'));
 app.use(express.static(__dirname));
 
-
 var todos=[];
 var socket=null;
-function processMessage(msg) {
-	var cmd = JSON.parse(msg.content.toString());
-	console.log("Command: " + cmd.command + ", Received: " + msg.content.toString());
+function processMessage(cmd) {
+	console.log("Command: " + cmd.command + ", Received: " + cmd);
 	if (cmd.command === "insert") {
 		todos.push(cmd.item);
+		socket.broadcast.emit("todomvc-snd",cmd);
 	}
 	else if (cmd.command === "remove") {
 		var index = -1;
@@ -25,6 +25,7 @@ function processMessage(msg) {
 			}
 		}
 		todos.splice(index, 1);
+		socket.broadcast.emit("todomvc-snd",cmd);
 	}
 	else if (cmd.command === "update") {
 		var index = -1;
@@ -34,6 +35,7 @@ function processMessage(msg) {
 			}
 		}
 		todos[index] = cmd.item;
+		socket.broadcast.emit("todomvc-snd",cmd);
 	}
 	else if (cmd.command === 'init') {
 		try {
@@ -43,7 +45,7 @@ function processMessage(msg) {
 				items: todos
 			}
 
-			socket.emit.broadcast("todomvc",JSON.stringify(retCmd));
+			socket.emit("todomvc-snd",retCmd);
 			console.log("Sent initialization data to " + cmd.client);
 		}
 		catch (e) {
@@ -52,11 +54,16 @@ function processMessage(msg) {
 	}
 }
 
-io.on("connection", function(s){
-	socket=s;
-	socket.on("todomvc", processMessage);
+
+io.on('connection', function(s){
+    	console.log('a user connected');
+		socket=s;
+    	s.on('disconnect', function(){
+        	console.log('user disconnected');
+    	});
+    	s.on('todomvc-rcv', processMessage);
 });
 
-http.listen(5000, function(){
-	console.log('listening on *:5000');
+http.listen(3000, function(){
+    console.log('listening on *:3000');
 });

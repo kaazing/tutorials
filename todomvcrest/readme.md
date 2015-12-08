@@ -1,4 +1,4 @@
-# Kaazing Javascript & AngularJS TodoMVC Example
+# Kaazing Javascript & AngularJS TodoMVC Example 
 
 > Kaazing is the world's most scalable, secure, and robust WebSocket platform for real-time Web communication
 
@@ -29,15 +29,6 @@ Kaazing WebSocket enables Web application to use publish/subscribe model. Applic
 - Item is ‘busy’ - somebody is working on it to help dealing with the race conditions.
 
 Application also contains NodeJS backend components that connects to AMQP server and receives all messages thus maintaining the current state of the items. Once the connection is established Web clients can obtain all the items in their current state by sending initialization request.
-_Helper component that emulates socket.io behavior for backward compatibility with existing NodeJS socket.io implementations is located under **node/socketioalt.js**
-
-### Reference implementation with Socket.io
-We also provide similar application that is written using [socket.io](http://socket.io) to illustrate the simplicity of the transition from socket.io to Kaazing WebSocket. 
-The files that are specific for this reference implementation are:
-- serversocketio.js - NodeJS server component
-- js/app-socketio.js - application module declaration that does not refer to Kaazing Universal Client library (compare with app.js).
-- js/controllers/todoCtrl-socketio.js - main controller that uses socket.io for communications (compare with todoCtrl.js).
-- index-socketio.html - Main HTML page that contains references to so
 
 ## Installing Kaazing AMQP Gateway
 - Download AMQP Gateway (Gateway + Documentation + Demos) from  [AMQP Gateway downloads page][11] as a ZIP file
