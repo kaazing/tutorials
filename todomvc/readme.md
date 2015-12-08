@@ -55,7 +55,8 @@ and replace them with
 		`./gateway.start`
 	- Open terminal window at _\<your installation directory\>/qpid-java-broker-0.28/bin_ and start Apache QPID AMQP server  
 		`./qpid-server`
-	- **Note**: to stop both Gateway and AMQP server just execute _Ctrl-C_ on the relevant terminal windows or just close them.  
+	- **Note**: to stop both Gateway and AMQP server just execute _Ctrl-C_ on the relevant terminal windows or just close them. 
+	
 ## Running the application
 - Install NodeJS as specified at [NodeJS Site][https://nodejs.org/en/]
 - Install required packages:
