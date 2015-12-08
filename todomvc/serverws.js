@@ -1,4 +1,3 @@
-var amqp = require('amqplib');
 var io=require('./node/socketioalt.js')('amqp://localhost:5672');
 var express=require('express');
 var app = express();
