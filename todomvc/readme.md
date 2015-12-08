@@ -71,10 +71,25 @@ bower install
 - Start the application
 
 ```bash
-node serverampqio.js
+node serverws.js
 ```
 
-- Test the application - open multiple instances of browser on http://localhost:5000
+- Test the application - open multiple instances of browser on http://localhost:3000
+
+### Running socket.io reference implementation
+- Install required packages:
+
+```bash
+cd <application directory>
+npm install socket.io
+```
+- Start the application
+
+```bash
+node serversocketio.js
+```
+
+- Test the application - open multiple instances of browser on http://localhost:3000/index-socketio.html
 
 
 
