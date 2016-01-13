@@ -45,7 +45,7 @@ The files that are specific for this reference implementation are:
 - Unzip downloaded package to _\<your installation directory\>_
 - **_By default Gateway is configured not to restrict communications only from the scripts that are running on its embedded servers_** which may not be convenient for Web Development. In order to disable it
 	- Go to _\<your installation directory\>/kaazing-websocket-gateway-amqp-4.0.6/conf _
-	- Edit __gateway\_config.xml__
+	- Edit __gateway\-config.xml__
 	- Locate lines  
 		_\<allow-origin>http://${gateway.hostname}:${gateway.extras.port}\</allow-origin>_
 and replace them with 
