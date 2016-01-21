@@ -1,0 +1,27 @@
+{
+   "name":"kaazing-jms-client-javascript",
+   "main":[
+      "javascript/JavascriptUniversalClient.js",
+      "javascript/AngularUniversalClient.js"
+   ],
+   "homepage":"https://github.com/kaazing/bower-kaazing-jms-client-javascript.git",
+   "author":"kaazing",
+   "description":"JavaScript client libraries to communicate with Kaazing JMS Gateway",
+   "keywords":[
+      "kaazing",
+      "websocket",
+      "javascript",
+      "jms"
+   ],
+   "license":[
+      {
+         "type":"Apache 2",
+         "url":"http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+   ],
+   "ignore":[
+      "**/.*"
+   ],
+   "dependencies":{
+   }
+}

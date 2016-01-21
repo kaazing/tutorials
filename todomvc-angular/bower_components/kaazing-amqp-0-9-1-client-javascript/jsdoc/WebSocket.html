@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: WebSocket</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: WebSocket</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    WebSocket
+    </h2>
+    
+        <div class="class-description">WebSocket provides a bidirectional communication channel. <b>Application
+    developers should use <code>WebSocketFactory#createWebSocket()</code> function to
+    create an instance of WebSocket. </b></div>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="WebSocket"><span class="type-signature"></span>new WebSocket<span class="signature">(url, protocols)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Creates and immedately connects a new WebSocket instance..
+    If the url is not valid, the constructor will throw a
+    <code>SyntaxError</code>.
+
+    If the port is blocked by the browser or if a secure connection is
+    attemped from a non-secure origin, the constructor will throw a
+    <code>SecurityException</code>.
+
+    If any protocol value is invalid or if a protocol appears in the Array
+    more than once, the constructor will throw a <code>SyntaxError</code>.
+
+    <b>Application developers should use WebSocketFactory.createWebSocket function
+    to create an instance of WebSocket.</b>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>protocols</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11829">line 11829</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="WebSocketFactory.html#createWebSocket">WebSocketFactory#createWebSocket</a>
+    See <a href="./WebSocketFactory.html">WebSocketFactory</a>.</li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="binaryType"><span class="type-signature"></span>binaryType<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Type of binary data for message events. Valid values are "blob", "arraybuffer"
+    and "bytebuffer". Blob and ByteBuffer will work on any supported browser.
+    ArrayBuffer is only an allowable value on browsers that support the
+    <a href="http://www.khronos.org/registry/typedarray/specs/latest/">
+        Typed Array Specification
+    </a>.
+    If this property is set to an invalid type, a <code>SyntaxError</code> will
+    be thrown.
+
+    NOTE: On older platforms where setter cannot be defined, the value is checked
+          onmessage is fired.
+          If set to an invalid value, the error event is fired.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11855">line 11855</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="bufferedAmount"><span class="type-signature">&lt;readonly> </span>bufferedAmount<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <B>(Read only)</B> Number of bytes that are queued to send but not yet written to the 
+    network.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11847">line 11847</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="connectTimeout"><span class="type-signature">&lt;readonly> </span>connectTimeout<span class="type-signature"> :Number(Integer)</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <B>(Read only)</B> Connect timeout in milliseconds. The timeout will expire if
+    there is no exchange of packets(for example, 100% packet loss) while
+    establishing the connection. A timeout value of zero indicates
+    no timeout.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number(Integer)</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11843">line 11843</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onclose"><span class="type-signature"></span>onclose<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        CloseEvent handler property.
+    See <a href="./CloseEvent.html">CloseEvent</a>.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11865">line 11865</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onerror"><span class="type-signature"></span>onerror<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        ErrorEvent handler property.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11863">line 11863</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onmessage"><span class="type-signature"></span>onmessage<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        MessageEvent handler property.
+    See <a href="./MessageEvent.html">MessageEvent</a>.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11859">line 11859</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onopen"><span class="type-signature"></span>onopen<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        OpenEvent handler property.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11861">line 11861</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="protocol"><span class="type-signature">&lt;readonly> </span>protocol<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <B>(Read only)</B> Protocol name selected by the WebSocket server during the connection
+    handshake.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11849">line 11849</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="readyState"><span class="type-signature">&lt;readonly> </span>readyState<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <B>(Read only)</B> State of the connection.
+    It can be one of the following constants - <BR /><BR />
+    <B>CONNECTING(0):</B> The connection is not yet open.<BR />
+    <B>OPEN(1):</B> The connection is open and ready to communicate.<BR />
+    <B>CLOSING(2):</B> The connection is in the process of closing.<BR />
+    <B>CLOSED(3):</B> The connection is closed or couldn't be opened.<BR />
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11845">line 11845</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="url"><span class="type-signature">&lt;readonly> </span>url<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <B>(Read only)</B> WebSocket end-point or location.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11853">line 11853</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="close"><span class="type-signature"></span>close<span class="signature">(code, reason)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Disconnects the WebSocket. If code is not an integer equal to 1000
+    or in the range 3000..4999, close() will throw an
+    <code>InvalidAccessError</code>.
+
+    The reason string must be at most 123 bytes when UTF-8 encoded. If the
+    reason string is too long, close() will throw a <code>SyntaxError</code>.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"><B>(Optional)</B> A numeric value indicating close code.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>reason</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"><B>(Optional)</B> A human readable string indicating why the client is closing the WebSocket</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11831">line 11831</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">void</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getChallengeHandler"><span class="type-signature"></span>getChallengeHandler<span class="signature">()</span><span class="type-signature"> &rarr; {ChallengeHandler}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Gets the ChallengeHandler that is used during authentication both at the
+    connect-time as well as at subsequent revalidation-time that occurs at
+    regular intervals.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11835">line 11835</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">ChallengeHandler</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getRedirectPolicy"><span class="type-signature"></span>getRedirectPolicy<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="HttpRedirectPolicy.html">HttpRedirectPolicy</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Gets the default HTTP redirect policy used in a clustered environment for
+    this connection. Default redirect policy is HttpRedirectPolicy.ALWAYS.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11839">line 11839</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="HttpRedirectPolicy.html">HttpRedirectPolicy</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="send"><span class="type-signature"></span>send<span class="signature">(data)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Sends a WebSocket message containing the given payload. Can be called with
+    a String, Blob, ArrayBuffer or ByteBuffer. When send() is called with a String, a
+    text WebSocket message is sent. When send() is called with a Blob, ArrayBuffer or
+    ByteBuffer, a binary WebSocket message is sent.
+
+    If send() is called with other data types an invalid type Error will be thrown.
+
+    If send() is called while the WebSocket is in the CONNECTING state,
+    an <code>InvalidStateError</code> will be thrown.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type"><a href="Blob.html">Blob</a></span>
+|
+
+<span class="param-type"><a href="ArrayBuffer.html">ArrayBuffer</a></span>
+|
+
+<span class="param-type"><a href="ByteBuffer.html">ByteBuffer</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">message payload</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11833">line 11833</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">void</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setChallengeHandler"><span class="type-signature"></span>setChallengeHandler<span class="signature">(challengeHandler)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Sets the ChallengeHandler that is used during authentication both at the
+    connect-time as well as at subsequent revalidation-time that occurs at
+    regular intervals.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>challengeHandler</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">ChallengeHandler</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">used for authentication</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11837">line 11837</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">void</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setRedirectPolicy"><span class="type-signature"></span>setRedirectPolicy<span class="signature">(redirectPolicy)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Sets the HTTP redirect policy used in a clustered environment for this
+    connection. Overrides the redirect policy inherited from WebSocketFactory.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>redirectPolicy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="HttpRedirectPolicy.html">HttpRedirectPolicy</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">HTTP redirect policy</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11841">line 11841</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">void</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Events</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="event:close">close</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Event fired when the WebSocket connection closes.
+    See <a href="./CloseEvent.html">CloseEvent</a>.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11875">line 11875</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:error">error</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Event fired when the WebSocket closes uncleanly.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11873">line 11873</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:message">message</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Event fired when a WebSocket message arrives.
+    The <code>data</code> property of the MessageEvent will be a String when
+    the WebSocket message is a WebSocket text message. It will be the type
+    specified by <code>binaryType</code> if the message is a WebSocket
+    binary message.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11869">line 11869</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:open">open</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Event fired when the WebSocket connection opens.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WebSocket-debug.js.html">WebSocket-debug.js</a>, <a href="WebSocket-debug.js.html#line11871">line 11871</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="AmqpArguments.html">AmqpArguments</a></li><li><a href="AmqpChannel.html">AmqpChannel</a></li><li><a href="AmqpClient.html">AmqpClient</a></li><li><a href="AmqpClientFactory.html">AmqpClientFactory</a></li><li><a href="AmqpEvent.html">AmqpEvent</a></li><li><a href="AmqpProperties.html">AmqpProperties</a></li><li><a href="ArrayBuffer.html">ArrayBuffer</a></li><li><a href="BasicChallengeHandler.html">BasicChallengeHandler</a></li><li><a href="Blob.html">Blob</a></li><li><a href="BlobUtils.html">BlobUtils</a></li><li><a href="ByteBuffer.html">ByteBuffer</a></li><li><a href="ByteOrder.html">ByteOrder</a></li><li><a href="ChallengeRequest.html">ChallengeRequest</a></li><li><a href="ChallengeResponse.html">ChallengeResponse</a></li><li><a href="Charset.html">Charset</a></li><li><a href="CloseEvent.html">CloseEvent</a></li><li><a href="DispatchChallengeHandler.html">DispatchChallengeHandler</a></li><li><a href="EventDispatcher.html">EventDispatcher</a></li><li><a href="EventSource.html">EventSource</a></li><li><a href="HttpRedirectPolicy.html">HttpRedirectPolicy</a></li><li><a href="MessageEvent.html">MessageEvent</a></li><li><a href="NegotiableChallengeHandler.html">NegotiableChallengeHandler</a></li><li><a href="NegotiateChallengeHandler.html">NegotiateChallengeHandler</a></li><li><a href="Oid.html">Oid</a></li><li><a href="PasswordAuthentication.html">PasswordAuthentication</a></li><li><a href="WebSocket.html">WebSocket</a></li><li><a href="WebSocketFactory.html">WebSocketFactory</a></li></ul><h3>Events</h3><ul><li><a href="WebSocket.html#event:close">close</a></li><li><a href="WebSocket.html#event:error">error</a></li><li><a href="WebSocket.html#event:message">message</a></li><li><a href="WebSocket.html#event:open">open</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Thu Feb 12 2015 15:25:38 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

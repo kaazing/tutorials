@@ -1,0 +1,30 @@
+{
+   "name":"kaazing-javascript-universal-client",
+   "main":[
+      "javascript/JavascriptUniversalClient.js",
+      "javascript/AngularUniversalClient.js"
+   ],
+   "homepage":"https://github.com/kaazing/universal-client",
+   "author":"kaazing",
+   "description":"Universal JavaScript/AngularJS Client for communication with Kaazing Gateways. Currently supports JMS and AMQP Gateways.",
+   "keywords":[
+      "kaazing",
+      "websocket",
+      "javascript"
+   ],
+   "license":[
+      {
+         "type":"Apache 2",
+         "url":"http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+   ],
+   "ignore":[
+      "**/.*"
+   ],
+   "dependencies":{
+      "requirejs":">=2.0.0",
+      "kaazing-amqp-0-9-1-client-javascript":"",
+      "kaazing-jms-client-javascript":"",
+      "jquery":""    
+   }
+}

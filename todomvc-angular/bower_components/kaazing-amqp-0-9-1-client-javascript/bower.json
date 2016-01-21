@@ -1,0 +1,6 @@
+{
+    "name": "kaazing-amqp-0-9-1-client-javascript",
+    "version": "5.0.0-14",
+    "ignore": [],
+    "dependencies": {}
+}
