@@ -5,7 +5,7 @@ This repository contains tutorials and samples of simple applications created fo
 * [Simple TODO application][5] using JMS or AMQP brokers.
 	* [Javascript][7]
 	* [AngularJS][8]
-* [TodoMVC application][6] for AMQP broker created based on the TodoMVC AngularJS sample (see [TodoMVC website][1]).
+* [Angular TodoMVC application][6] for AMQP broker created based on the TodoMVC AngularJS sample (see [TodoMVC website][1]).
 
 For more information about using Kaazing gateway and client development visit [http://developer.kaazing.com/][2]
 

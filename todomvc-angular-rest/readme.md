@@ -1,4 +1,4 @@
-# Kaazing Javascript & AngularJS TodoMVC Example 
+# Kaazing Javascript & AngularJS TodoMVC Example using REST simulation
 
 > Kaazing is the world's most scalable, secure, and robust WebSocket platform for real-time Web communication
 
@@ -29,6 +29,10 @@ Kaazing WebSocket enables Web application to use publish/subscribe model. Applic
 - Item is ‘busy’ - somebody is working on it to help dealing with the race conditions.
 
 Application also contains NodeJS backend components that connects to AMQP server and receives all messages thus maintaining the current state of the items. Once the connection is established Web clients can obtain all the items in their current state by sending initialization request.
+_Helper component that emulates socket.io behavior for backward compatibility with existing NodeJS socket.io implementations is located under **node/socketioalt.js**
+
+### REST simulation and reference implementation with Socket.io
+To simplify transition from REST-based implementation we also provide a REST emulation client wrapper AngularJS service (js/services/AngularRestEmulationClient.js), Node.js back end REST emulator (restalt.js) and a reference application (serverrestem.js) to illustrate the simplicity of the transition from REST API to Kaazing WebSocket. 
 
 ## Installing Kaazing AMQP Gateway
 - Download AMQP Gateway (Gateway + Documentation + Demos) from  [AMQP Gateway downloads page][11] as a ZIP file
@@ -46,7 +50,8 @@ and replace them with
 		`./gateway.start`
 	- Open terminal window at _\<your installation directory\>/qpid-java-broker-0.28/bin_ and start Apache QPID AMQP server  
 		`./qpid-server`
-	- **Note**: to stop both Gateway and AMQP server just execute _Ctrl-C_ on the relevant terminal windows or just close them.  
+	- **Note**: to stop both Gateway and AMQP server just execute _Ctrl-C_ on the relevant terminal windows or just close them. 
+	
 ## Running the application
 - Install NodeJS as specified at [NodeJS Site][https://nodejs.org/en/]
 - Install required packages:
@@ -62,10 +67,20 @@ bower install
 - Start the application
 
 ```bash
-node serverampqio.js
+node serverws.js
 ```
 
-- Test the application - open multiple instances of browser on http://localhost:5000
+- Test the application - open multiple instances of browser on http://localhost:3000
+
+### Running socket.io reference implementation
+```
+- Start the application
+
+```bash
+node serverrestem.js
+```
+
+- Test the application - open multiple instances of browser on http://localhost:5000/index-socketio.html
 
 
 

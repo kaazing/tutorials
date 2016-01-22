@@ -32,4 +32,8 @@ todomvcrest/bower_components/**
 
 *.plist
 
-todomvcrest/restapi/**
+todomvc-angular-rest/restapi/**
+todomvc-angular-rest/bower_components/*
+
+
+todomvc-react/node_modules/*

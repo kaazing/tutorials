@@ -167,15 +167,27 @@ var app = app || {};
 		}
 	});
 
-	var model = new app.TodoModel('react-todos');
-
 	function render() {
 		React.render(
 			<TodoApp model={model}/>,
 			document.getElementsByClassName('todoapp')[0]
 		);
 	}
+	var client=UniversalClientDef("amqp");
+	var connectionInfo = {
+		URL: "ws://localhost:8001/amqp",
+		TOPIC_PUB: "todo",
+		TOPIC_SUB: "todo",
+		username: "guest",
+		password: "guest"
+	};
+	var model = new app.TodoModel('react-todos', client);
 
-	model.subscribe(render);
-	render();
+	client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true,
+		function(msg){
+			model.onMessage(msg);
+		},function(err){alert(err);}, function(category, message){console.log(category+":"+message)}, function(){
+		model.subscribe(render);
+		render();
+	});
 })();
