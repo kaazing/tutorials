@@ -144,8 +144,9 @@ var sendMessage=function(msg){
 }
 
 $(document).ready(function () {
+    console.info("Getting JSON Data from file data/todo.json...");
     $.get('data/todo.json', function( r ) {
-        todos=r;
+        (typeof(r) == "string") ? todos = jQuery.parseJSON(r) : todos=r;
         for(var i=0;i<todos.length;i++){
             todos[i].available=true;
         }
