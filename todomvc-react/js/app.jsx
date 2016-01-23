@@ -62,6 +62,12 @@ var app = app || {};
 		toggle: function (todoToToggle) {
 			this.props.model.toggle(todoToToggle);
 		},
+		busy: function(busyTodo){
+			this.props.model.busy(busyTodo, true);
+		},
+		notbusy: function(busyTodo){
+			this.props.model.busy(busyTodo, false);
+		},
 
 		destroy: function (todo) {
 			this.props.model.destroy(todo);
@@ -69,6 +75,7 @@ var app = app || {};
 
 		edit: function (todo) {
 			this.setState({editing: todo.id});
+			this.props.model.busy(todo, true);
 		},
 
 		save: function (todoToSave, text) {
@@ -106,6 +113,8 @@ var app = app || {};
 						key={todo.id}
 						todo={todo}
 						onToggle={this.toggle.bind(this, todo)}
+						onBusy={this.busy.bind(this, todo)}
+						onNotBusy={this.notbusy.bind(this, todo)}
 						onDestroy={this.destroy.bind(this, todo)}
 						onEdit={this.edit.bind(this, todo)}
 						editing={this.state.editing === todo.id}

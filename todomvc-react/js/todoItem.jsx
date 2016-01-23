@@ -79,19 +79,28 @@ var app = app || {};
 			return (
 				<li className={classNames({
 					completed: this.props.todo.completed,
+					busy: this.props.todo.busy,
 					editing: this.props.editing
-				})}>
+				})}
+					disabled={this.props.todo.busy}
+				>
 					<div className="view">
 						<input
 							className="toggle"
 							type="checkbox"
 							checked={this.props.todo.completed}
 							onChange={this.props.onToggle}
+							onMouseOver={this.props.onBusy}
+							onMouseOut={this.props.onNotBusy}
 						/>
 						<label onDoubleClick={this.handleEdit}>
 							{this.props.todo.title}
 						</label>
-						<button className="destroy" onClick={this.props.onDestroy} />
+						<button className="destroy"
+								onClick={this.props.onDestroy}
+								onMouseOver={this.props.onBusy}
+								onMouseOut={this.props.onNotBusy}
+						/>
 					</div>
 					<input
 						ref="editField"

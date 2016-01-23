@@ -110,6 +110,15 @@ var app = app || {};
 		this.inform();
 	};
 
+	app.TodoModel.prototype.busy = function (busyTodo, busy) {
+		var msg={
+			command:"update",
+			item:Utils.extend({}, busyTodo, {busy: busy})
+		};
+		this.wsClient.sendMessage(msg);
+	};
+
+
 	app.TodoModel.prototype.destroy = function (todo) {
 		this.todos = this.todos.filter(function (candidate) {
 			return candidate !== todo;
@@ -125,9 +134,10 @@ var app = app || {};
 	app.TodoModel.prototype.save = function (todoToSave, text) {
 
 		this.todos = this.todos.map(function (todo) {
-			return todo !== todoToSave ? todo : Utils.extend({}, todo, {title: text});
+			return todo !== todoToSave ? todo : Utils.extend({}, todo, {title: text, /*busy:false*/});
 		});
 		todoToSave.title=text;
+		todoToSave.busy=false;
 		var msg={
 			command:"update",
 			item:todoToSave
