@@ -81,13 +81,14 @@ var app = app || {};
 		// easier to reason about and React works very well with them. That's why
 		// we use map() and filter() everywhere instead of mutating the array or
 		// todo items themselves.
+		var client=this.wsClient;
 		this.todos = this.todos.map(function (todo) {
 			var todo1=Utils.extend({}, todo, {completed: checked});
 			var msg={
 				command:"update",
 				item:todo1
 			};
-			this.wsClient.sendMessage(msg);
+			client.sendMessage(msg);
 			return todo1;
 		});
 
