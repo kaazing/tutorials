@@ -78,7 +78,8 @@ angular.module('todomvc')
 					});
 			}
 			else if (cmd.command==="initdata"){
-				if (cmd.client===$scope.client){
+				if (!$scope.initialized){
+					$scope.initialized=true;
 					$scope.saving = true;
 					store.init(cmd.items)
 						.then(function success() {
@@ -91,6 +92,7 @@ angular.module('todomvc')
 			}
 		}
 
+		$scope.initialized=false;
 		$scope.loadData=function(){
 			var msg={
 				command:"init",

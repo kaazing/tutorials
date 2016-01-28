@@ -37,6 +37,7 @@ var amqpClientFunction=function(logInformation){
      */
     var AmqpClient = {connected:false};
 
+    var clientId=appId;
     var messageReceivedFunc=null;
 	var connectionEstablishedFunc=null;
     var errorFunction=null;
@@ -117,7 +118,8 @@ var amqpClientFunction=function(logInformation){
             catch(e){
                 logInformation("WARN", "Received object is not JSON");
             }
-            messageReceivedFunc(body);
+            if (body.clientId!==clientId)
+                messageReceivedFunc(body);
         });
 
         // The default value for noAck is true. Passing a false value for 'noAck' in
@@ -226,6 +228,7 @@ var amqpClientFunction=function(logInformation){
      * @param msg Message to be sent. As messages are sent in a text format msg will be converted to JSON if it is not a string.
      */
     AmqpClient.sendMessage=function(msg){
+        msg.clientId=clientId;
         if (typeof msg ==="object"){
             msg=JSON.stringify(msg);
         }
