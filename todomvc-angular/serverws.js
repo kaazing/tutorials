@@ -37,12 +37,11 @@ function processMessage(cmd) {
 		try {
 			var retCmd = {
 				command: "initdata",
-				client: cmd.client,
 				items: todos
 			}
 
 			socket.emit("todomvc",retCmd);
-			console.log("Sent initialization data to " + cmd.client);
+			console.log("Sent initialization data to " + cmd.clientId);
 		}
 		catch (e) {
 			console.log("Error " + e);

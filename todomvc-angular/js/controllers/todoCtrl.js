@@ -94,7 +94,6 @@ angular.module('todomvc')
 		$scope.loadData=function(){
 			var msg={
 				command:"init",
-				client:$scope.client
 			}
 			AngularUniversalClient.sendMessage(msg);
 			$log.info("Sent initialization!");
