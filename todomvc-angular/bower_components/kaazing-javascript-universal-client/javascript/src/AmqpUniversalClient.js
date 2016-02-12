@@ -128,7 +128,7 @@ var amqpClientFunction=function(logInformation){
         // explicit acknowledgement is required when the message is received.
         consumeChannel.declareQueue({queue: queueName})
             .bindQueue({queue: queueName, exchange: topicSub, routingKey: routingKey })
-            .consumeBasic({queue: queueName, consumerTag: appId, noAck: true, noLocal:noLocalFlag });
+            .consumeBasic({queue: queueName, consumerTag: clientId, noAck: true, noLocal:noLocalFlag });
     }
 
     var openHandler=function(){
@@ -168,8 +168,17 @@ var amqpClientFunction=function(logInformation){
     // just once – such as a ChallengeHandler – and reuse it.
     //
     var createWebSocketFactory = function() {
-
-        webSocketFactory = new $gatewayModule.WebSocketFactory();
+        try{
+            webSocketFactory = new $gatewayModule.WebSocketFactory();
+        }
+        catch(e){
+            try{
+                webSocketFactory = new WebSocketFactory();
+            }
+            catch(e){
+                return null;
+            }
+        }
         return webSocketFactory;
     }
     /**
@@ -193,14 +202,11 @@ var amqpClientFunction=function(logInformation){
         errorFunction=errorFunctionHandle;
         noLocalFlag=noLocal;
         var amqpClientFactory = new AmqpClientFactory();
-        var webSocketFactory;
-        if ($gatewayModule && typeof($gatewayModule.WebSocketFactory) === "function") {
-            webSocketFactory = createWebSocketFactory();
-            amqpClientFactory.setWebSocketFactory(webSocketFactory);
+        var webSocketFactory = createWebSocketFactory();
+        if (webSocketFactory==null){
+            andleException("Cannot create WebSocket factory - module is not loaded!");
         }
-        else{
-            handleException("Cannot create WebSocket factory - module is not loaded!");
-        }
+        amqpClientFactory.setWebSocketFactory(webSocketFactory);
         amqpClient = amqpClientFactory.createAmqpClient();
         amqpClient.addEventListener("close", function() {
             logInformation("INFO","Connection closed.");

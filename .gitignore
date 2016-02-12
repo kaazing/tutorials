@@ -38,6 +38,7 @@ todomvc-angular-rest/bower_components/*
 
 todomvc-react/node_modules/*
 
-todomvc-angular/bower_components/**
+todomvc-angular/bower_components/*
 todomvc-react/node_modules/*
 todomvc-react/node_modules/classnames/index.js
+
