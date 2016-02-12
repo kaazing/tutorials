@@ -8,39 +8,39 @@ app.use(express.static(__dirname+'js'));
 app.use(express.static(__dirname));
 
 
-var advisories=[];
+var todos=[];
 var socket=null;
 function processMessage(cmd) {
 	console.log("Command: " + cmd.command + ", Received: " + cmd);
 	if (cmd.command === "insert") {
-		advisories.push(cmd.item);
+		todos.push(cmd.item);
 	}
 	else if (cmd.command === "remove") {
 		var index = -1;
-		for (var i = 0; i < advisories.length; i++) {
-			if (advisories[i].id === cmd.item.id) {
+		for (var i = 0; i < todos.length; i++) {
+			if (todos[i].id === cmd.item.id) {
 				index = i;
 			}
 		}
-		advisories.splice(index, 1);
+		todos.splice(index, 1);
 	}
 	else if (cmd.command === "update") {
 		var index = -1;
-		for (var i = 0; i < advisories.length; i++) {
-			if (advisories[i].id === cmd.item.id) {
+		for (var i = 0; i < todos.length; i++) {
+			if (todos[i].id === cmd.item.id) {
 				index = i;
 			}
 		}
-		advisories[index] = cmd.item;
+		todos[index] = cmd.item;
 	}
 	else if (cmd.command === 'init') {
 		try {
 			var retCmd = {
 				command: "initdata",
-				items: advisories
+				items: todos
 			}
 
-			socket.emit("advisories",retCmd);
+			socket.emit("todo",retCmd);
 			console.log("Sent initialization data to " + cmd.clientId);
 		}
 		catch (e) {
@@ -53,7 +53,7 @@ function processMessage(cmd) {
 io.on('connection', function(s){
 	console.log('a user connected');
 	socket=s;
-	s.on('advisories', processMessage);
+	s.on('todo', processMessage);
 });
 
 http.listen(3000, function(){

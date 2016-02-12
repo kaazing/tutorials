@@ -18,6 +18,7 @@ var app = app || {};
 		this.todos = Utils.store(key);
 		this.onChanges = [];
 		this.wsClient=wsClient;
+		this.initialized=false;
 	};
 
 	app.TodoModel.prototype.subscribe = function (onChange) {
@@ -71,8 +72,11 @@ var app = app || {};
 
 		}
 		else if (cmd.command==="initdata"){
-			this.todos=cmd.items;
-			this.inform();
+			if (!this.initialized){
+				this.initialized=true;
+				this.todos=cmd.items;
+				this.inform();
+			}
 		}
 	};
 

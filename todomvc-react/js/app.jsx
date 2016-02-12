@@ -196,7 +196,11 @@ var app = app || {};
 		function(msg){
 			model.onMessage(msg);
 		},function(err){alert(err);}, function(category, message){console.log(category+":"+message)}, function(){
-		model.subscribe(render);
-		render();
+			var msg={
+				command:"init",
+			};
+			client.sendMessage(msg);
+			model.subscribe(render);
+			render();
 	});
 })();
