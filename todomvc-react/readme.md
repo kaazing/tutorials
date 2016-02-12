@@ -1,4 +1,4 @@
-# Kaazing Javascript & AngularJS TodoMVC Example
+# Kaazing Javascript & ReactJS TodoMVC Example
 
 > Kaazing is the world's most scalable, secure, and robust WebSocket platform for real-time Web communication
 
@@ -63,6 +63,8 @@ and replace them with
 
 ```bash
 cd <application directory>
+npm install
+flatten-packages .
 npm install amqplib
 npm install express
 npm install http
