@@ -6,7 +6,7 @@ This repository contains tutorials and samples of simple applications created fo
 	* [Javascript][7]
 	* [AngularJS][8]
 * [Angular TodoMVC application][6] for AMQP broker created based on the TodoMVC AngularJS sample (see [TodoMVC website][1]).
-* [Angular TodoMVC application][9] for AMQP broker created based on the TodoMVC AngularJS sample and using REST simulation (see [TodoMVC website][1]).
+* [Angular TodoMVC application using REST simulation][9] for AMQP broker created based on the TodoMVC AngularJS sample (see [TodoMVC website][1]).
 * [ReactJS TodoMVC application][10] for AMQP broker created based on the TodoMVC ReactJS sample (see [TodoMVC website][10]).
 
 
