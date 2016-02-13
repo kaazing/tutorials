@@ -1,0 +1,22 @@
+{
+    "name": "kaazing-amqp-0-9-1-client-javascript",
+    "version": "5.0.0-14",
+    "description": "Amqp 0.9.1 javascript library.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kaazing/kaazing-amqp-0-9-1-client-javascript.git"
+    },
+    "keywords": [
+        "kaazing",
+        "gateway",
+        "amqp-0-9-1",
+        "client-side"
+    ],
+    "author": "Kaazing",
+    "licenses": [
+        {
+            "type": "Apache 2",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    ]
+}

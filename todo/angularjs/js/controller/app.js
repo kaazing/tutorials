@@ -131,7 +131,7 @@ angular.module("webSocketApp", ['KaazingClientService'])
             AngularUniversalClient.connect("jms",jmsWebSocketConfig.URL,jmsWebSocketConfig.username, jmsWebSocketConfig.password, jmsWebSocketConfig.TOPIC_PUB, jmsWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(err){alert(err);}, $scope.logWebSocketMessage, null );
         }
         else{
-            alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
+            alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+$scope.protocol);
         }
 
         $scope.sendMessage = function(msg){

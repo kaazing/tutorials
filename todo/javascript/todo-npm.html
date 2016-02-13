@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="webSocketApp">
+<head>
+    <title>WebSocket Test Application</title>
+    <script src="node_modules/requirejs/require.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <script src="node_modules/kaazing-javascript-universal-client/node_modules/kaazing-javascript-jms-client/JmsClient.js"></script>
+    <script src="node_modules/kaazing-javascript-universal-client/JavascriptUniversalClientNPM.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div id="todoPanel" class="panel">
+    <h3 class="panel-header">To Do List</h3>
+    <table id="todoTable" class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Action</th>
+            <th>Done</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <h4>Local Messages</h4>
+    <div id="localMessages" class="msg-container">
+    </div>
+    <h4>WebSocket Messages</h4>
+    <div id="wsMessages" class="msg-container">
+    </div>
+</div>
+
+</body>
+</html>

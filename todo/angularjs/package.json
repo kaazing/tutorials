@@ -1,0 +1,28 @@
+{
+  "name": "kaazing-universal-client-tutorial-angular",
+  "version": "0.0.2",
+  "description": "Tutorial for using Kaazing JavaScript Universal Client for AngularJS.",
+  "main": "todo-npm.html",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaazing/tutorials/tree/develop/todo/angularjs"
+  },
+  "keywords": [
+    "WebSocket",
+    "Kaazing",
+    "JavaScript",
+    "AngularJS"
+  ],
+  "author": "Kaazing, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angularjs-scroll-glue": "^2.0.4",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0",
+    "kaazing-javascript-universal-client": "",
+    "requirejs": "^2.1.22"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "kaazing-amqp-0-9-1-client-javascript",
+  "version": "5.0.0-14",
+  "ignore": [],
+  "dependencies": {},
+  "homepage": "https://github.com/kaazing/bower-kaazing-amqp-0-9-1-client-javascript",
+  "_release": "5.0.0-14",
+  "_resolution": {
+    "type": "version",
+    "tag": "5.0.0-14",
+    "commit": "242a79dcc267c11254157cc032fd5d2a2ccabc52"
+  },
+  "_source": "git://github.com/kaazing/bower-kaazing-amqp-0-9-1-client-javascript.git",
+  "_target": "*",
+  "_originalSource": "kaazing-amqp-0-9-1-client-javascript"
+}

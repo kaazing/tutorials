@@ -1,0 +1,5090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: AmqpChannel</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: AmqpChannel</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    AmqpChannel
+    </h2>
+    
+        <div class="class-description">AmqpChannel is a channel opened with the AMQP broker. Use AmqpClient.openChannel() to create a new AmqpChannel.</div>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="AmqpChannel"><span class="type-signature"></span>new AmqpChannel<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        AmqpChannel
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5458">line 5458</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="onbindqueue"><span class="type-signature"></span>onbindqueue<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The bindqueue handler is called when a bind request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5695">line 5695</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="oncancel"><span class="type-signature"></span>oncancel<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The cancel handler is called when a cancel request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5765">line 5765</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onclose"><span class="type-signature"></span>onclose<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The close handler is called when the channel closes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5611">line 5611</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="oncommittransaction"><span class="type-signature"></span>oncommittransaction<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The committransaction handler is called when a transaction commit completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5779">line 5779</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onconsume"><span class="type-signature"></span>onconsume<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The consume handler is called when a consume request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5751">line 5751</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ondeclareexchange"><span class="type-signature"></span>ondeclareexchange<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The declareexchange handler is called when an exchange declaration completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5667">line 5667</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ondeclarequeue"><span class="type-signature"></span>ondeclarequeue<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The declarequeue handler is called when a queue declaration completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5653">line 5653</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ondeleteexchange"><span class="type-signature"></span>ondeleteexchange<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The deleteexchange handler is called when a request to delete an exchange completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5737">line 5737</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ondeletequeue"><span class="type-signature"></span>ondeletequeue<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The deletequeue handler is called when a request to delete a queue completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5723">line 5723</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onerror"><span class="type-signature"></span>onerror<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The error handler is called when the channel ...
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5625">line 5625</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onflow"><span class="type-signature"></span>onflow<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The flow handler is called when a flow request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5681">line 5681</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onget"><span class="type-signature"></span>onget<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The get handler is called when a get request returns.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5821">line 5821</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onmessage"><span class="type-signature"></span>onmessage<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The message handler is called when a message is received.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5597">line 5597</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onopen"><span class="type-signature"></span>onopen<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The open handler is called when the channel opens.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5639">line 5639</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onpurgequeue"><span class="type-signature"></span>onpurgequeue<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The purgequeue handler is called when a purge request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5835">line 5835</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onrecover"><span class="type-signature"></span>onrecover<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The recover handler is called when a recover request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5849">line 5849</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onreject"><span class="type-signature"></span>onreject<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The reject handler is called when a reject request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5863">line 5863</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onrollbacktransaction"><span class="type-signature"></span>onrollbacktransaction<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The rollbacktransaction handler is called when a transaction rollback completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5793">line 5793</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onselecttransaction"><span class="type-signature"></span>onselecttransaction<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The selecttransaction handler is called when a select request completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5807">line 5807</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onunbindqueue"><span class="type-signature"></span>onunbindqueue<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The unbindqueue handler is called when a request to unbind a queue from and exchange completes.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line5709">line 5709</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="ackBasic"><span class="type-signature"></span>ackBasic<span class="signature">(config)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method acknowledges one or more messages delivered via the Deliver
+or Get-Ok methods. The client can ask to confirm a single message or a set of 
+messages up to and including a specific message.
+
+<p> AmqpChannel.ackBasic() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {deliveryTag: dt, multiple: true};
+   channel.ackBasic(config);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          deliveryTag: dt_num_value,
+                          multiple: true|false
+                        }
+                       </pre>
+Parameter 'deliveryTag' is required. Boolean parameter 'multiple' is optional
+with false as the default value.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line8417">line 8417</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="bindQueue"><span class="type-signature"></span>bindQueue<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method binds a queue to an exchange. Until a queue is bound it will not
+receive any messages. In a classic messaging model, store-and-forward queues
+are bound to a direct exchange and subscription queues are bound to a topic
+exchange. Developers should invoke this function as shown below:
+
+<p> AmqpChannel.bindQueue() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {queue: myQueueName, 
+                 exchange: myExchangeName,
+                 routingKey: key};
+   channel.bindQueue(config, callback);
+</pre>
+
+<p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          queue: 'queue_name_str_value',
+                          exchange: 'exchange_name_str_value',
+                          routingKey: 'key_str_value'
+                          noWait: true|false,
+                          args: { }
+                        }
+                       </pre>
+Required parameter 'queue' specifies the queue name. Required parameter
+'exchange' specifies the exchange name. Required parameter 'routingKey'
+specifies the key to be used to bind the queue to the exchange. Boolean
+parameter 'noWait' is optional with false as the default value. Param 'args'
+is an optional amd can be used to pass in additional properties for 
+declaration.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7747">line 7747</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="cancelBasic"><span class="type-signature"></span>cancelBasic<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method cancels a consumer. This does not affect already delivered
+messages, but it does mean the server will not send any more messages for
+that consumer. The client may receive an arbitrary number of messages in
+between sending the cancel method and receiving the cancel-ok reply.
+
+<p> AmqpChannel.cancelBasic() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {consumerTag: clientTag, noWait: true};
+   channel.cancelBasic(config, callback);
+</pre>
+
+<p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          consumerTag: 'consumer_tag_str_value',
+                          noWait: true|false
+                        }
+                       </pre>
+Required parameter consumerTag' is required. Boolean parameters 'noWait' is 
+optional with false as the default value.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line8199">line 8199</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="closeChannel"><span class="type-signature"></span>closeChannel<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method indicates that the sender wants to close the channel. This 
+may be due to internal conditions (e.g. a forced shut-down) or due to an error 
+handling a specific method, i.e. an exception. When a close is due to an
+exception, the sender provides the class and method id of the method which
+caused the exception.
+
+<p> AmqpChannel.closeChannel() function that supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+<pre>
+    var channel = ...;
+    var config = {replyCode: int1, 
+                  replyText, 'foo', 
+                  classId: int2,
+                  methodId: int3};
+    channel.closeChannel(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                       {
+                         replyCode: int_value,
+                         replyText: 'str_value',
+                         classId: int_value,
+                         methodId: int_value
+                       }
+                       </pre>
+Default values are as follows: 
+                       <pre>
+                         replyCode  --  0
+                         replyText  --  "" 
+                         classId    --  0
+                         methodId   --  0
+                         callback   -- undefined
+                       </pre>
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7444">line 7444</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="commitTx"><span class="type-signature"></span>commitTx<span class="signature">(callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method commits all message publications and acknowledgments performed in
+the current transaction.  A new transaction starts immediately after a commit.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Function to be called on success
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7318">line 7318</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="consumeBasic"><span class="type-signature"></span>consumeBasic<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method asks the server to start a "consumer", which is a transient 
+request for messages from a specific queue. Consumers last as long as the 
+channel they were declared on, or until the client cancels them.
+
+<p> AmqpChannel.consumeBasic() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {queue: myQueueName, 
+                 consumerTag: clientTag, 
+                 exclusive: false,
+                 noLocal: true};
+   channel.consumeBasic(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          queue: 'queue_name_str_value',
+                          consumerTag: 'consumer_tag_str_value',
+                          noLocal: true|false,
+                          noAck: true|false,
+                          exclusive: true|false,
+                          noWait: true|false,
+                          args: { }
+                        }
+                       </pre>
+
+Required parameter 'queue' specifies the queue name. Parameter
+'consumerTag' is required. Boolean parameters 'noLocal', 'noWait', and
+'exclusive' are optional with false as the default value. 
+<p>
+Boolean parameter 'noAck' is optional with default value of true. If noAck is 
+true, the broker will not expect any acknowledgement from the client before
+discarding the message. If noAck is false, then the broker will expect an
+acknowledgement before discarding the message.  If noAck is specified to be
+false, then it's developers responsibility to explicitly acknowledge the
+received message using AmqpChannel.ackBasic() as shown below: 
+
+<pre>
+var handleMessageReceived = function(event) {
+   ....
+   var props = event.properties;
+   var exchange = event.args.exchange;
+   var routingKey = event.args.routingKey;
+   var dt = event.args.deliveryTag;
+   var channel = event.target;
+  
+   // Acknowledge the received message. Otherwise, the broker will eventually
+   // run out of memory.
+   var config = {deliveryTag: dt, multiple: true};
+   setTimeout(function() {
+               channel.ackBasic(config);
+             }, 0);
+}
+</pre>
+
+Parameter 'args' is optional and can be used to pass in additional properties
+for declaration.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line8079">line 8079</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="declareExchange"><span class="type-signature"></span>declareExchange<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method creates an exchange if it does not already exist, and if the 
+exchange exists, verifies that it is of the correct and expected class.
+
+<p> AmqpChannel.declareExchange() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+<pre>
+   var channel = ...;
+   var config = {exchange: myExchangeName, type: 'direct'};
+   channel.declareExchange(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          exchange: 'str_value',
+                          type: 'direct'|'fanout'|'headers'|'topic',
+                          passive: true|false,
+                          durable: true|false,
+                          noWait: true|false,
+                          args: {  }
+                        }
+                       </pre>
+'exchange' specifies the name of the exchange and is a required param. The
+legal values of the required 'type' param are 'direct', 'fanout', 'headers', 
+and 'topic' Boolean params 'passive', 'durable', and 'noWait' have a default
+value of false. Param 'args' is an optional param that can be used to pass 
+in additional properties. 
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7523">line 7523</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="declareQueue"><span class="type-signature"></span>declareQueue<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method creates or checks a queue. When creating a new queue the client 
+can specify various properties that control the durability of the queue and 
+its contents, and the level of sharing for the queue.
+
+<p> AmqpChannel.declareQueue() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {queue: myQueueName, exclusive: false};
+   channel.declareQueue(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          queue: 'queue_name_str_value',
+                          passive: true|false,
+                          durable: true|false,
+                          exclusive: true|false,
+                          autoDelete: true|false,
+                          noWait: true|false,
+                          args: { }
+                        }
+                       </pre>
+Required parameter 'queue' specifies the queue name. Boolean parameters
+'passive', 'durable', 'noWait', 'exclusive' and 'autoDelete' are optional 
+with false as the default value. Param 'args' is an optional param that 
+can be used to pass in additional properties for declaration.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7663">line 7663</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="deleteExchange"><span class="type-signature"></span>deleteExchange<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method deletes an exchange. When an exchange is deleted all queue 
+bindings on the exchange are cancelled.
+
+<p> AmqpChannel.deleteExchange() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {exchange: myExchangeName, noWait: false};
+   channel.deleteExchange(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          exchange: 'exchange_name_str_value',
+                          ifUnused: true|false,
+                          noWait: true|false
+                        }
+                       </pre>
+Required parameter 'exchange' specifies the name of the exchange. Default 
+values of the optional boolean parameters 'ifUnused' and 'noWait' is false.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7602">line 7602</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="deleteQueue"><span class="type-signature"></span>deleteQueue<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method deletes a queue. When a queue is deleted any pending messages 
+are sent to a dead-letter queue if this is defined in the server configuration, 
+and all consumers on the queue are cancelled.
+
+<p> AmqpChannel.deleteQueue() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {queue: myQueueName, ifEmpty: true};
+   channel.deleteQueue(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       {
+                         queue: 'queue_name_str_value',
+                         ifUnused: true|false,
+                         ifEmpty: true|false,
+                         noWait: true|false
+                       }
+Required parameter 'queue' specifies the queue name. Boolean parameters 
+'ifUnused', 'ifEmpty', and 'noWait' are optional with false as the default 
+value. 
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7947">line 7947</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="flowChannel"><span class="type-signature"></span>flowChannel<span class="signature">(active, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method asks the peer to pause or restart the flow of content data sent by
+a consumer. This is a simple flow-control mechanism that a peer can use to avoid
+overflowing its queues or otherwise finding itself receiving more messages than
+it can process. Note that this method is not intended for window control. It does
+not affect contents returned by Basic.Get-Ok methods.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>active</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Bit</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">start/stop content frames
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Function to be called on success
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line6007">line 6007</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="flowOkChannel"><span class="type-signature"></span>flowOkChannel<span class="signature">(active, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Confirms to the peer that a flow command was received and processed.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>active</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Bit</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">current flow setting
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Function to be called on success
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line6071">line 6071</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getBasic"><span class="type-signature"></span>getBasic<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method provides a direct access to the messages in a queue using a 
+synchronous dialogue that is designed for specific types of application 
+where synchronous functionality is more important than performance.
+
+<p> AmqpChannel.getBasic() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+<pre>
+   var channel = ...;
+   var config = {queue: myQueueName, noAck: true};
+   channel.getBasic(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          queue: 'queue_name_str_value',
+                          noAck: true|false
+                        }
+                       </pre>
+Required parameter 'queue' specifies the queue name. Boolean parameter 
+'noAck' is optional with false as the default value.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line8362">line 8362</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="publishBasic"><span class="type-signature"></span>publishBasic<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method publishes a message to a specific exchange. The message will 
+be routed to queues as defined by the exchange configuration and distributed
+to any active consumers when the transaction, if any, is committed.
+
+<p> AmqpChannel.publishBasic() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var props = new AmqpProperties();
+   props.setMessageId("msgId1");
+   var config = {body: buffer, 
+                 properties: props,
+                 exchange: myExchangeName, 
+                 routingKey: key};
+   channel.publishBasic(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          body: ArrayBuffer_or_ByteBuffer_instance,
+                          properties: AmqpProperties_instance,
+                          exchange: 'exchange_name_str_value',
+                          routingKey: 'routingKey_str_value',
+                          mandatory: true|false,
+                          immediate: true|false
+                        }
+                       </pre>
+Required parameter 'body' takes an instance of either ArrayBuffer or 
+ByteBuffer. Newer browsers support ArrayBuffer. However, developers can
+continue to support older browsers by specify a ByteBuffer payload as 'body'.
+The 'properties' parameter takes an instance of AmqpProperties topass the 
+pre-defined properties as per AMQP 0-9-1 specification. AmqpProperties 
+provides getter/setter APIs for all the pre-defined properties as a 
+convenience. Required parameter 'exchange' specifies the name of the exchange. 
+Parameter 'routingKey' is required. Boolean parameters 'mandatory' and 
+'immediate' are optional with false as the default value.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line8258">line 8258</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="purgeQueue"><span class="type-signature"></span>purgeQueue<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method removes all messages from a queue which are not awaiting
+acknowledgment.
+
+<p> AmqpChannel.purgeQueue() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {queue: myQueueName};
+   channel.purgeQueue(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          queue: 'queue_name_str_value',
+                          noWait: true|false
+                        }
+                       </pre>
+Required parameter 'queue' specifies the queue name. Boolean parameter 
+'noWait' is optional with false as the default value.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7891">line 7891</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="qosBasic"><span class="type-signature"></span>qosBasic<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method requests a specific quality of service. The QoS can be specified
+for the current channel or for all channels on the connection. The particular
+properties and semantics of a qos method always depend on the content class 
+semantics. Though the qos method could in principle apply to both peers, it 
+is currently meaningful only for the server.
+
+<p> AmqpChannel.qosBasic() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {prefetchSize: size, prefetchCount: count, global: true};
+   channel.qosBasic(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          prefetchSize: size_long_value_in_octets,
+                          prefetchCount: count_short_value_in_octets,
+                          global: true|false
+                        }
+                       </pre>
+Parameter 'prefetchSize' and 'prefetchCount' are required. Boolean parameter
+'global' is optional with false as the default value.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line8014">line 8014</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="recoverBasic"><span class="type-signature"></span>recoverBasic<span class="signature">(requeue, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method asks the server to redeliver all unacknowledged messages on a
+specified channel. Zero or more messages may be redelivered.  This method
+replaces the asynchronous Recover.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>requeue</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Bit</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">requeue the message
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Function to be called on success
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7199">line 7199</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="rejectBasic"><span class="type-signature"></span>rejectBasic<span class="signature">(config)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This is the overloaded form of AmqpChannel.rejectBasic() function that 
+named parameters or arguments using the Configuration object.
+
+<p> AmqpChannel.rejectBasic() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+<pre>
+   var channel = ...;
+   var config = {deliveryTag: dt, requeue: true};
+   channel.rejectBasic(config);
+</pre>
+
+This method allows a client to reject a message. It can be used to interrupt 
+and cancel large incoming messages, or return untreatable messages to their 
+original queue.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          deliveryTag: dt_num_value,
+                          requeue: true|false
+                        }
+                       </pre>
+Parameter 'deliveryTag' is required. Boolean parameter 'requeue' is optional
+with false as the default value.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line8472">line 8472</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="rollbackTx"><span class="type-signature"></span>rollbackTx<span class="signature">(callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method abandons all message publications and acknowledgments performed in
+the current transaction. A new transaction starts immediately after a rollback.
+Note that unacked messages will not be automatically redelivered by rollback;
+if that is required an explicit recover call should be issued.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Function to be called on success
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7371">line 7371</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="selectTx"><span class="type-signature"></span>selectTx<span class="signature">(callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method sets the channel to use standard transactions. The client must use this
+method at least once on a channel before using the Commit or Rollback methods.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Function to be called on success
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7265">line 7265</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="unbindQueue"><span class="type-signature"></span>unbindQueue<span class="signature">(config, callback)</span><span class="type-signature"> &rarr; {<a href="AmqpChannel.html">AmqpChannel</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        This method unbinds a queue from an exchange.
+
+<p> AmqpChannel.unbindQueue() function supports named parameters or 
+arguments using the Configuration object. Developers must invoke this 
+function as shown below:
+
+<pre>
+   var channel = ...;
+   var config = {queue: myQueueName, exchange: exchangeName, routingKey: key};
+   channel.unbindQueue(config, callback);
+</pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Configuration</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Format is as shown below:
+                       <pre>
+                        {
+                          queue: 'queue_name_str_value',
+                          exchange: 'exchange_name_str_value',
+                          routingKey: 'routingKey_str_value',
+                          args: { }
+                        }
+                       </pre>
+Required parameter 'queue' specifies the queue name. Required parameter
+'exchange' specifies the exchange name. Required parameter 'routingKey'
+specifies the key that was used to bind the queue to the exchange. Parameter 
+'args' is optional and can be used to pass in additional properties for 
+declaration.
+<p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Optional param specifies the function that is to be invoked on success.
+<p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Amqp-0-9-1-debug.js.html">Amqp-0-9-1-debug.js</a>, <a href="Amqp-0-9-1-debug.js.html#line7826">line 7826</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="AmqpChannel.html">AmqpChannel</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="AmqpArguments.html">AmqpArguments</a></li><li><a href="AmqpChannel.html">AmqpChannel</a></li><li><a href="AmqpClient.html">AmqpClient</a></li><li><a href="AmqpClientFactory.html">AmqpClientFactory</a></li><li><a href="AmqpEvent.html">AmqpEvent</a></li><li><a href="AmqpProperties.html">AmqpProperties</a></li><li><a href="ArrayBuffer.html">ArrayBuffer</a></li><li><a href="BasicChallengeHandler.html">BasicChallengeHandler</a></li><li><a href="Blob.html">Blob</a></li><li><a href="BlobUtils.html">BlobUtils</a></li><li><a href="ByteBuffer.html">ByteBuffer</a></li><li><a href="ByteOrder.html">ByteOrder</a></li><li><a href="ChallengeRequest.html">ChallengeRequest</a></li><li><a href="ChallengeResponse.html">ChallengeResponse</a></li><li><a href="Charset.html">Charset</a></li><li><a href="CloseEvent.html">CloseEvent</a></li><li><a href="DispatchChallengeHandler.html">DispatchChallengeHandler</a></li><li><a href="EventDispatcher.html">EventDispatcher</a></li><li><a href="EventSource.html">EventSource</a></li><li><a href="HttpRedirectPolicy.html">HttpRedirectPolicy</a></li><li><a href="MessageEvent.html">MessageEvent</a></li><li><a href="NegotiableChallengeHandler.html">NegotiableChallengeHandler</a></li><li><a href="NegotiateChallengeHandler.html">NegotiateChallengeHandler</a></li><li><a href="Oid.html">Oid</a></li><li><a href="PasswordAuthentication.html">PasswordAuthentication</a></li><li><a href="WebSocket.html">WebSocket</a></li><li><a href="WebSocketFactory.html">WebSocketFactory</a></li></ul><h3>Events</h3><ul><li><a href="WebSocket.html#event:close">close</a></li><li><a href="WebSocket.html#event:error">error</a></li><li><a href="WebSocket.html#event:message">message</a></li><li><a href="WebSocket.html#event:open">open</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Thu Feb 12 2015 15:25:37 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
