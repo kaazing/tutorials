@@ -22,6 +22,7 @@ Here are some links you may find helpful:
 _If you have other helpful links to share, or find any of the links above no longer work, please [let us know][10]._
 
 ## Implementation
+Application enhances ReactJS TodoMVC published on [TodoMVC site](http://todomvc.com/examples/react/#/) with real-time capabilities.
 Kaazing WebSocket enables Web application to use publish/subscribe model. Application notifies other instances when
 - Item is created
 - Item is complete/incomplete
@@ -29,15 +30,7 @@ Kaazing WebSocket enables Web application to use publish/subscribe model. Applic
 - Item is ‘busy’ - somebody is working on it to help dealing with the race conditions.
 
 Application also contains NodeJS backend components that connects to AMQP server and receives all messages thus maintaining the current state of the items. Once the connection is established Web clients can obtain all the items in their current state by sending initialization request.
-_Helper component that emulates socket.io behavior for backward compatibility with existing NodeJS socket.io implementations is located under **node/socketioalt.js**
-
-### Reference implementation with Socket.io
-We also provide similar application that is written using [socket.io](http://socket.io) to illustrate the simplicity of the transition from socket.io to Kaazing WebSocket. 
-The files that are specific for this reference implementation are:
-- serversocketio.js - NodeJS server component
-- js/app-socketio.js - application module declaration that does not refer to Kaazing Universal Client library (compare with app.js).
-- js/controllers/todoCtrl-socketio.js - main controller that uses socket.io for communications (compare with todoCtrl.js).
-- index-socketio.html - Main HTML page that contains references to so
+_Helper component that emulates socket.io behavior for backward compatibility with existing NodeJS socket.io implementations is located under **node/socketioalt.js**_
 
 ## Installing Kaazing AMQP Gateway
 - Download AMQP Gateway (Gateway + Documentation + Demos) from  [AMQP Gateway downloads page][11] as a ZIP file
@@ -63,12 +56,10 @@ and replace them with
 
 ```bash
 cd <application directory>
-npm install
-flatten-packages .
 npm install amqplib
 npm install express
 npm install http
-bower install
+npm install
 ```
 
 - Start the application
@@ -79,20 +70,6 @@ node serverws.js
 
 - Test the application - open multiple instances of browser on http://localhost:3000
 
-### Running socket.io reference implementation
-- Install required packages:
-
-```bash
-cd <application directory>
-npm install socket.io
-```
-- Start the application
-
-```bash
-node serversocketio.js
-```
-
-- Test the application - open multiple instances of browser on http://localhost:3000/index-socketio.html
 
 
 

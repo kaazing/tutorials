@@ -22,6 +22,8 @@ Here are some links you may find helpful:
 _If you have other helpful links to share, or find any of the links above no longer work, please [let us know][10]._
 
 ## Implementation
+Application enhances AngularJS TodoMVC published on [TodoMVC site](http://todomvc.com/examples/angularjs/#/) with real-time capabilities.
+
 Kaazing WebSocket enables Web application to use publish/subscribe model. Application notifies other instances when
 - Item is created
 - Item is complete/incomplete
@@ -67,20 +69,11 @@ bower install
 - Start the application
 
 ```bash
-node serverws.js
+node serverrestem.js
 ```
 
 - Test the application - open multiple instances of browser on http://localhost:3000
 
-### Running socket.io reference implementation
-```
-- Start the application
-
-```bash
-node serverrestem.js
-```
-
-- Test the application - open multiple instances of browser on http://localhost:5000/index-socketio.html
 
 
 

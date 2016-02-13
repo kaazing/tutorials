@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="webSocketApp">
+<head>
+    <title>WebSocket Test Application</title>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angularjs-scroll-glue/src/scrollglue.js"></script>
+    <script src="node_modules/requirejs/require.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <!-- Unfortunately, the library uses document.write that prevents it from being loaded dynamically!!! -->
+    <script src="node_modules/kaazing-javascript-universal-client/node_modules/kaazing-javascript-jms-client/JmsClient.js"></script>
+    <script src="js/controller/app.js"></script>
+    <script src="node_modules/kaazing-javascript-universal-client/AngularUniversalClientNPM.js"></script>
+</head>
+<body>
+<div id="todoPanel" class="panel" ng-controller="mainCtl">
+    <h3 class="panel-header">To Do List</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Action</th>
+            <th>Done</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in todos" class="Blue">
+            <td>{{item.id}}</td>
+            <td>{{item.action}}</td>
+            <td ng-class="getDoneColor(item)" ng-mouseenter="handleMouseoverEvent($event, item)" ng-mouseleave="handleMouseoverEvent($event, item)">
+                <input type="checkbox" ng-model="item.complete" ng-change="itemClicked(item)" ng-disabled="!item.available">
+            </td>
+        </tr>
+    </table>
+    <h4>Local Messages</h4>
+    <div class="msg-container" scroll-glue="glued">
+        <div ng-repeat="message in localMessages">
+            {{message.message}}
+        </div>
+    </div>
+    <h4>WebSocket Messages</h4>
+    <div class="msg-container" scroll-glue="glued">
+        <div ng-repeat="message in webSocketMessages">
+            <p ng-class="message.class">{{message.message}}</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

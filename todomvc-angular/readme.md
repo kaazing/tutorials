@@ -22,14 +22,16 @@ Here are some links you may find helpful:
 _If you have other helpful links to share, or find any of the links above no longer work, please [let us know][10]._
 
 ## Implementation
-Kaazing WebSocket enables Web application to use publish/subscribe model. Application notifies other instances when
+Application enhances AngularJS TodoMVC published on [TodoMVC site](http://todomvc.com/examples/angularjs/#/) with real-time capabilities.
+
+Kaazing WebSocket enables the original application to use publish/subscribe model. Application notifies other instances when
 - Item is created
 - Item is complete/incomplete
 - Item text is modified
 - Item is ‘busy’ - somebody is working on it to help dealing with the race conditions.
 
 Application also contains NodeJS backend components that connects to AMQP server and receives all messages thus maintaining the current state of the items. Once the connection is established Web clients can obtain all the items in their current state by sending initialization request.
-_Helper component that emulates socket.io behavior for backward compatibility with existing NodeJS socket.io implementations is located under **node/socketioalt.js**
+_Helper component that emulates socket.io behavior for backward compatibility with existing NodeJS socket.io implementations is located under **node/socketioalt.js**_
 
 ### Reference implementation with Socket.io
 We also provide similar application that is written using [socket.io](http://socket.io) to illustrate the simplicity of the transition from socket.io to Kaazing WebSocket. 
