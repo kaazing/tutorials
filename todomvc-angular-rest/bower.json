@@ -11,6 +11,6 @@
     "todomvc-app-css": "^1.0.1",
     "angular-route": "^ 1.4.3",
     "angular-resource": "^1.4.3",
-    "kaazing-javascript-universal-client":""
+	"kaazing-javascript-universal-client": "<1.0"
   }
 }
