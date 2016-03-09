@@ -1,21 +1,7 @@
 'use strict';
 
-angular.module("webSocketApp", ['KaazingClientService'])
-    .constant('amqpWebSocketConfig', {
-        URL: "ws://localhost:8001/amqp",
-        TOPIC_PUB: "todo",
-        TOPIC_SUB: "todo",
-        username: "guest",
-        password: "guest"
-    })
-    .constant('jmsWebSocketConfig', {
-        URL: "ws://localhost:8001/jms",
-        TOPIC_PUB: "/topic/Todo",
-        TOPIC_SUB: "/topic/Todo",
-        username: "",
-        password: ""
-    })
-    .controller("mainCtl", function ($scope, $log, $timeout, $http, amqpWebSocketConfig, jmsWebSocketConfig,AngularUniversalClient) {
+angular.module("webSocketApp", [])
+    .controller("mainCtl", function ($scope, $log, $timeout, $http) {
         $http.get('data/todo.json').
             success(function(data, status, headers, config) {
                 $scope.todos = data;
@@ -122,25 +108,56 @@ angular.module("webSocketApp", ['KaazingClientService'])
             }
         }
 
-        $scope.protocol=window.location.search.replace("?", "").split("&")[0];
-        // TODO: Connect to the wire
+		$scope.protocol=window.location.search.replace("?", "").split("&")[0];
+		// TODO: Connect to the wire
+        var connectionInfo=null;
+        var noLocal=true;
+        var TOPIC_PUB=null;
+        var	TOPIC_SUB=null;
         if ($scope.protocol=="amqp") {
-            AngularUniversalClient.connect("amqp",amqpWebSocketConfig.URL,amqpWebSocketConfig.username, amqpWebSocketConfig.password, amqpWebSocketConfig.TOPIC_PUB, amqpWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(err){alert(err);}, $scope.logWebSocketMessage, null );
+            connectionInfo = {
+                url: "ws://localhost:8001/amqp",
+                username: "guest",
+                password: "guest"
+            };
+            TOPIC_PUB="todo";
+            TOPIC_SUB="todo";
         }
         else if ($scope.protocol=="jms") {
-            AngularUniversalClient.connect("jms",jmsWebSocketConfig.URL,jmsWebSocketConfig.username, jmsWebSocketConfig.password, jmsWebSocketConfig.TOPIC_PUB, jmsWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(err){alert(err);}, $scope.logWebSocketMessage, null );
+            connectionInfo = {
+                url: "ws://localhost:8001/jms",
+                username: "",
+                password: ""
+            };
+            TOPIC_PUB="/topic/Todo";
+            TOPIC_SUB="/topic/Todo";
         }
         else{
             alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+$scope.protocol);
         }
 
+		$scope.exceptionHandler=function(error){
+			alert(error);
+		}
+		$scope.client=UniversalClientDef($scope.protocol);
+
+		// Set the logger function
+		$scope.client.loggerFuncHandle=$scope.logWebSocketMessage;
+
+		$scope.client.connect(connectionInfo, $scope.exceptionHandler, function(connection){
+			connection.subscribe(TOPIC_PUB, TOPIC_SUB,$scope.processReceivedCommand, noLocal, function(subscr){
+				console.info("Subscription is created "+subscr);
+				$scope.subscription=subscr;
+			});
+		});
+
         $scope.sendMessage = function(msg){
             // TODO: Send the message
-            AngularUniversalClient.sendMessage(msg);
+            $scope.subscription.sendMessage(msg);
         }
 
         $( window ).unload(function() {
             // TODO: Disconnect
-            AngularUniversalClient.disconnect();
+            $scope.client.disconnect();
         });
     });

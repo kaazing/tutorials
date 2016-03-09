@@ -77,7 +77,7 @@ bower install
 	    <!-- Unfortunately, the library uses document.write that prevents it from being loaded 	dynamically!!! -->
 	    <script src="bower_components/kaazing-jms-client-javascript/javascript/src/JmsClient.js"></script>
 	    <script src="js/controller/app.js"></script>
-    	<script src="bower_components/kaazing-javascript-universal-client/javascript/src/AngularUniversalClient.js"></script>
+    	<script src="bower_components/kaazing-javascript-universal-client/javascript/src/JavascriptUniversalClient.js"></script>
 	</head>
 	<body>
 	<div id="todoPanel" class="panel" ng-controller="mainCtl">
@@ -282,28 +282,7 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
 
 **All our changes will be done in app.js**
 
-1. We need to add KaazingClientService service and create two configurations for connecting with Gateways - one for JMS and one for AMQP. 
-
-	```javascript
-	angular.module("webSocketApp", ['KaazingClientService'])
-		.constant('amqpWebSocketConfig', {
-			URL: "ws://localhost:8001/amqp",
-			TOPIC_PUB: "todo",
-			TOPIC_SUB: "todo",
-			username: "guest",
-			password: "guest"
-		})
-		.constant('jmsWebSocketConfig', {
-			URL: "ws://localhost:8001/jms",
-			TOPIC_PUB: "/topic/Todo",
-			TOPIC_SUB: "/topic/Todo",
-			username: "",
-			password: ""
-		})
-	    .controller("mainCtl", function ($scope, $log, $timeout, $http, amqpWebSocketConfig, jmsWebSocketConfig,AngularUniversalClient) {	    	    
-	```
-
-2. Let's add the functionality to log WebSocket messages that will be returned from the Universal Client.
+1. Let's add the functionality to log WebSocket messages that will be returned from the Universal Client.
 	
 	```javascript
 	      // Logging and error handling facilities
@@ -330,7 +309,7 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
 		...
 	```
 	**Note:** Due to asynchronous nature of WebSocket libraries and AngularJS we will be using timer to add the messages to the log window.
-3. Now we need to add the function that will be processing received messages.
+2. Now we need to add the function that will be processing received messages.
 	
 	```javascript
 	...
@@ -373,43 +352,76 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
 	- 'complete' : item is checked
 	- 'incomplete' : item is unchecked
 	
-4. Now we need to establish connection with the Gateway. First we will detect which protocol to use (by using the first URL parameter) and then establish appropriate connection:
+3. Now we need to establish connection with the Gateway. First we will detect which protocol to use (by using the first URL parameter) and then establish appropriate connection:
 	
 	```javascript
 	...
-	  $scope.protocol=window.location.search.replace("?", "").split("&")[0];
-        // TODO: Connect to the wire
+		$scope.protocol=window.location.search.replace("?", "").split("&")[0];
+		// TODO: Connect to the wire
+        var connectionInfo=null;
+        var noLocal=true;
+        var TOPIC_PUB=null;
+        var	TOPIC_SUB=null;
         if ($scope.protocol=="amqp") {
-            AngularUniversalClient.connect("amqp",amqpWebSocketConfig.URL,amqpWebSocketConfig.username, amqpWebSocketConfig.password, amqpWebSocketConfig.TOPIC_PUB, amqpWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(err){alert(err);}, $scope.logWebSocketMessage, null );
+            connectionInfo = {
+                url: "ws://localhost:8001/amqp",
+                username: "guest",
+                password: "guest"
+            };
+            TOPIC_PUB="todo";
+            TOPIC_SUB="todo";
         }
         else if ($scope.protocol=="jms") {
-            AngularUniversalClient.connect("jms",jmsWebSocketConfig.URL,jmsWebSocketConfig.username, jmsWebSocketConfig.password, jmsWebSocketConfig.TOPIC_PUB, jmsWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(err){alert(err);}, $scope.logWebSocketMessage, null );
+            connectionInfo = {
+                url: "ws://localhost:8001/jms",
+                username: "",
+                password: ""
+            };
+            TOPIC_PUB="/topic/Todo";
+            TOPIC_SUB="/topic/Todo";
         }
         else{
-            alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
+            alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+$scope.protocol);
         }
+
+		$scope.exceptionHandler=function(error){
+			alert(error);
+		}
+		$scope.client=UniversalClientDef($scope.protocol);
+
+		// Set the logger function
+		$scope.client.loggerFuncHandle=$scope.logWebSocketMessage;
+
+		$scope.client.connect(connectionInfo, $scope.exceptionHandler, function(connection){
+			connection.subscribe(TOPIC_PUB, TOPIC_SUB,$scope.processReceivedCommand, noLocal, function(subscr){
+				console.info("Subscription is created "+subscr);
+				$scope.subscription=subscr;
+			});
+		});
 	...
 	```
-	As you can see we pass to the Universal Client the following parameters
-		- protocol to use amqp/jms
-		- URL
-		- user name
-		- user password 
+As you can see we pass to the _connect_ function the following parameters
+	    - Connection information that includes
+		    - URL
+		    - user name
+		    - user password
+		- function to process errors
+		- callback function that will return connection object that will be used to create __subscriptions__
+		     
+	Once connection is established, we use connection object to create _subscription_. We use _subscribe_ function with the following parameters:
 		- name of publishing endpoint 
 		- name of subscription endpoint - in our case it is the same as publishing
-		- true flag indicating that we do not want to receive our own messages
 		- function to receive and process messages
-		- function to process errors
-		- function to log WebSocket messages
-		- null instead of the function name to indicate that we do not need to do any post-connect initializations.
-		
-5. In order to send messages, all we need to do is add AngularUniversalClient.sendMessage(msg) to our $scope.sendCommand function
+		- noLocal flag (set to true) indicating that we do not want to receive our own messages
+		- callback function that will receive subscription object once it is created. In this function we will store the received object to a __$scope.subscription__ variable.
+				
+4. In order to send messages, all we need to do is add AngularUniversalClient.sendMessage(msg) to our $scope.sendCommand function
 	
 	```javascript
 	...	
         $scope.sendMessage = function(msg){
             // TODO: Send the message
-            AngularUniversalClient.sendMessage(msg);
+            $scope.subscription.sendMessage(msg);
         }
 	...
 	```
@@ -418,14 +430,9 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
 	
 	```javascript
 	...
-        $scope.sendMessage = function(msg){
-            // TODO: Send the message
-            AngularUniversalClient.sendMessage(msg);
-        }
-
         $( window ).unload(function() {
             // TODO: Disconnect
-            AngularUniversalClient.disconnect();
+            $scope.client.disconnect();
         });
     });
     ```
