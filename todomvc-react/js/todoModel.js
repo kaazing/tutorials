@@ -13,13 +13,17 @@ var app = app || {};
 	// may not even be worth separating this logic
 	// out, but we do this to demonstrate one way to
 	// separate out parts of your application.
-	app.TodoModel = function (key, wsClient) {
+	app.TodoModel = function (key) {
 		this.key = key;
 		this.todos = Utils.store(key);
 		this.onChanges = [];
-		this.wsClient=wsClient;
+		this.wsClient=null;
 		this.initialized=false;
 	};
+
+	app.TodoModel.prototype.setWsClient=function(client){
+		this.wsClient=client;
+	}
 
 	app.TodoModel.prototype.subscribe = function (onChange) {
 		this.onChanges.push(onChange);

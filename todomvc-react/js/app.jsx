@@ -182,25 +182,37 @@ var app = app || {};
 			document.getElementsByClassName('todoapp')[0]
 		);
 	}
+
+	// Connect to WebSocket
 	var client=UniversalClientDef("amqp");
-	var connectionInfo = {
-		URL: "ws://localhost:8001/amqp",
-		TOPIC_PUB: "todo",
-		TOPIC_SUB: "todo",
+	var connectionInfo= {
+		url: "ws://localhost:8001/amqp",
 		username: "guest",
 		password: "guest"
 	};
-	var model = new app.TodoModel('react-todos', client);
+	var TOPIC_PUB="todomvc";
+	var TOPIC_SUB="todomvc";
+	var noLocal=true;
 
-	client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true,
-		function(msg){
-			model.onMessage(msg);
-		},function(err){alert(err);}, function(category, message){console.log(category+":"+message)}, function(){
+	var model = new app.TodoModel('react-todos');
+
+	var messageHandler=function(msg){
+		model.onMessage(msg);
+	};
+	var exceptionHandler=function(error){
+		alert(error);
+	};
+	client.connect(connectionInfo, exceptionHandler, function(connection){
+		connection.subscribe(TOPIC_PUB, TOPIC_SUB,messageHandler, noLocal, function(subscription){
+			console.info("Subscription is created "+subscription);
+			model.setWsClient(subscription);
+
 			var msg={
-				command:"init",
+				command:"init"
 			};
-			client.sendMessage(msg);
+			subscription.sendMessage(msg);
 			model.subscribe(render);
 			render();
+		});
 	});
 })();
