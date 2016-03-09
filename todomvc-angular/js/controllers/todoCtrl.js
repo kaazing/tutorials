@@ -6,7 +6,7 @@
  * - exposes the model to the template and provides event handlers
  */
 angular.module('todomvc')
-	.controller('TodoCtrl', function TodoCtrl($scope, $routeParams, $filter, store,todoMvcWebSocketConfig, AngularUniversalClient, $log,$timeout ) {
+	.controller('TodoCtrl', function TodoCtrl($scope, $routeParams, $filter, store, $log ) {
 		'use strict';
 
 		var todos = $scope.todos = store.todos;
@@ -32,21 +32,6 @@ angular.module('todomvc')
 				{ completed: false } : (status === 'completed') ?
 				{ completed: true } : {};
 		});
-
-		$scope.logWebSocketMessage=function(severity, msg){
-			if (severity === undefined || severity == null)
-				severity = "info";
-			severity=severity.toLowerCase();
-			if (severity==="debug")
-				$log.debug(msg);
-			else if (severity==="info")
-				$log.info(msg);
-			else if (severity==="warn")
-				$log.warn(msg);
-			else if (severity==="error")
-				$log.error(msg);
-		}
-
 
 		$scope.processReceivedCommand=function(cmd){
 			$log.info("Received command "+cmd.command);
@@ -97,12 +82,30 @@ angular.module('todomvc')
 			var msg={
 				command:"init",
 			}
-			AngularUniversalClient.sendMessage(msg);
+			$scope.subscription.sendMessage(msg);
 			$log.info("Sent initialization!");
 		}
 
 		// Connect to WebSocket
-		AngularUniversalClient.connect("amqp",todoMvcWebSocketConfig.URL,todoMvcWebSocketConfig.username, todoMvcWebSocketConfig.password, todoMvcWebSocketConfig.TOPIC_PUB, todoMvcWebSocketConfig.TOPIC_SUB, true, $scope.processReceivedCommand, function(e){alert(e);},$scope.logWebSocketMessage, $scope.loadData);
+		var connectionInfo= {
+			url: "ws://localhost:8001/amqp",
+			username: "guest",
+			password: "guest"
+		};
+		var TOPIC_PUB="todomvc";
+		var TOPIC_SUB="todomvc";
+		var noLocal=true;
+		$scope.exceptionHandler=function(error){
+			alert(error);
+		}
+		$scope.client=UniversalClientDef("amqp");
+		$scope.client.connect(connectionInfo, $scope.exceptionHandler, function(connection){
+			connection.subscribe(TOPIC_PUB, TOPIC_SUB,$scope.processReceivedCommand, noLocal, function(subscr){
+				console.info("Subscription is created "+subscr);
+				$scope.subscription=subscr;
+				$scope.loadData();
+			});
+		});
 
 
 		$scope.addTodo = function () {
@@ -124,7 +127,7 @@ angular.module('todomvc')
 						command:"insert",
 						item:newTodo
 					}
-					AngularUniversalClient.sendMessage(msg);
+					$scope.subscription.sendMessage(msg);
 					$scope.newTodo = '';
 				})
 				.finally(function () {
@@ -141,7 +144,7 @@ angular.module('todomvc')
 				command:"update",
 				item:todo1
 			}
-			AngularUniversalClient.sendMessage(msg);
+			$scope.subscription.sendMessage(msg);
 			$scope.editedTodo = todo;
 			// Clone the original todo to restore it on demand.
 			$scope.originalTodo = angular.extend({}, todo);
@@ -177,7 +180,7 @@ angular.module('todomvc')
 						command:todo.title?"update":"remove",
 						item:todo
 					}
-					AngularUniversalClient.sendMessage(msg);
+					$scope.subscription.sendMessage(msg);
 				}, function error() {
 					todo.title = $scope.originalTodo.title;
 				})
@@ -192,7 +195,7 @@ angular.module('todomvc')
 				command:"update",
 				item:todo
 			}
-			AngularUniversalClient.sendMessage(msg);
+			$scope.subscription.sendMessage(msg);
 			todos[todos.indexOf(todo)] = $scope.originalTodo;
 			$scope.editedTodo = null;
 			$scope.originalTodo = null;
@@ -204,7 +207,7 @@ angular.module('todomvc')
 				command:"remove",
 				item:todo
 			}
-			AngularUniversalClient.sendMessage(msg);
+			$scope.subscription.sendMessage(msg);
 			store.delete(todo);
 		};
 
@@ -222,7 +225,7 @@ angular.module('todomvc')
 						command:"update",
 						item:todo
 					}
-					AngularUniversalClient.sendMessage(msg);
+					$scope.subscription.sendMessage(msg);
 				}, function error() {
 					todo.completed = !todo.completed;
 				});
@@ -239,7 +242,7 @@ angular.module('todomvc')
 				command:"update",
 				item:todo1
 			}
-			AngularUniversalClient.sendMessage(msg);
+			$scope.subscription.sendMessage(msg);
 		}
 
 		$scope.markAll = function (completed) {

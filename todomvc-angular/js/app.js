@@ -5,7 +5,7 @@
  *
  * @type {angular.Module}
  */
-angular.module('todomvc', ['ngRoute', 'ngResource', 'KaazingClientService'])
+angular.module('todomvc', ['ngRoute', 'ngResource'])
 	.config(function ($routeProvider) {
 		'use strict';
 
@@ -29,11 +29,4 @@ angular.module('todomvc', ['ngRoute', 'ngResource', 'KaazingClientService'])
 			.otherwise({
 				redirectTo: '/'
 			});
-	})
-	.constant('todoMvcWebSocketConfig', {
-		URL: "ws://localhost:8001/amqp",
-		TOPIC_PUB: "todomvc",
-		TOPIC_SUB: "todomvc",
-		username: "guest",
-		password: "guest"
 	});
