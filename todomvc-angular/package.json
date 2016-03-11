@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.3",
+    "angular-resource": "1.4.3",
+    "angular-route": "1.4.3",
+    "jquery": "^2.2.1",
+    "kaazing-javascript-universal-client": ">=1.0 <2.0",
+    "requirejs": "^2.1.22",
+    "todomvc-app-css": "^1.0.1",
+    "todomvc-common": "^1.0.0"
+  }
+}

@@ -19,7 +19,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.0",
-    "kaazing-javascript-universal-client": ">1.0 <2.0",
+    "kaazing-javascript-universal-client": ">=1.0 <2.0",
     "requirejs": "^2.1.22"
   }
 }

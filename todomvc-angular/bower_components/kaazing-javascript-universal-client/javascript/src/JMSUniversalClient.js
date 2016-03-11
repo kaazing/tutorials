@@ -5,7 +5,6 @@
  * Facade function that implements Kaazing WebSocket communications via JMS server
  * @param logInformation function that is used for logging events in a format of function(severity, message).
  * @returns {JMSClient} object that implements communication functions
- * @constructor
  */
 var jmsClientFunction=function(logInformation){
     var appId = (function () {
@@ -19,12 +18,11 @@ var jmsClientFunction=function(logInformation){
 
 
     var initialized=false;
+
      /**
      * Provides communication services with JMS server.
      * @class
-     * @name JMSClient
      */
-
     var JMSClient = {connected:false, subscriptions:[]};
 
 
@@ -122,12 +120,11 @@ var jmsClientFunction=function(logInformation){
 			session:session,
 			/**
 			 * Creates a subscription.
-			 * @constructor
 			 * @param topicPub {string} name of the topic to publish
 			 * @param topicSub {string} name of the topic to subscribe
 			 * @param messageReceivedFunc {function} callback to receive messages in a format function(msg) where msg is expected to be a valid JSON
-			 * @param noLocal if set to true and publishing and subscription topics are the same, the client will not receive its own messages
-			 * @param subscribedCallbackFunction callback function if a format function(SubcriptionObject) to be called when {SubsriptionObject} is created.
+			 * @param noLocal {boolean} if set to true and publishing and subscription topics are the same, the client will not receive its own messages
+			 * @param subscribedCallbackFunction {function} callback function if a format function(SubcriptionObject) to be called when SubsriptionObject is created.
 			 */
 			subscribe:function(topicPub, topicSub, messageReceivedFunc, noLocal, subscribedCallbackFunction){
 				var pubDest = this.session.createTopic(topicPub);
@@ -170,14 +167,14 @@ var jmsClientFunction=function(logInformation){
     }
     var connection=null;
     var session=null;
-    /**
-     * Connects to Kaazing WebSocket JMS Gateway
-	 * @constructor
-     * @param connectionInfo Connection info object that should contain url, username and password properties
-     * @param errorFuncHandle function that is used for error handling in a format of function(error)
-     * @param connectFunctionHandle function this is called when connection is established in a format: function(connection) called when {ConnectionObject} is created.
-     */
-    JMSClient.connect=function(connectionInfo, errorFunctionHandle, connectedFunctionHandle){
+
+	/**
+	 * Connects to Kaazing WebSocket Gateway (AMQP or JMS)
+	 * @param connectionInfo {ConnectionInfo} Connection info object that should contain url, username and password properties
+	 * @param errorFuncHandle {function} function that is used for error handling in a format of function(error)
+	 * @param connectFunctionHandle {function} function this is called when connection is established in a format: function(ConnectionObject).
+	 */
+	JMSClient.connect=function(connectionInfo, errorFunctionHandle, connectedFunctionHandle){
         errorFunction=errorFunctionHandle;
 		connectionEstablishedFunc=connectedFunctionHandle;
 

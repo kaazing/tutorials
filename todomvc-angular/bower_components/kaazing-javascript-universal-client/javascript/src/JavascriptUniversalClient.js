@@ -1,28 +1,21 @@
 /**
- * Created by romans on 9/15/15.
- */
-/**
  * Kaazing JavaScript Universal Client facade that communicates with the gateway based on specified protocol. Script downloads necessary libraries except of JmsClient.js - that script has to be added to the <head> section.
  * @param protocol Specifies protocol that should be used for communications: jms - for communication with Kaazing JMS Gateway, amqp - for communication with Kaazing AMQP Gateway.
- * @returns {{UniversalClient object that implements communication functions}}
- * @constructor
+ * @returns {JavascriptUniversalClient} object that implements communication functions
  */
 var UniversalClientDef=function(protocol){
     /**
      * Provides communication services with JMS or AMQP server. Created within UniversalClientDef constructor.
      * @class
-     * @name JavascriptUniversalClient
      */
     var JavascriptUniversalClient = {};
     var client = null;
 
     /**
      * Connects to Kaazing WebSocket Gateway (AMQP or JMS)
-     /**
-     * Connects to Kaazing WebSocket JMS Gateway
-     * @param connectionInfo Connection info object that should contain url, username and password properties
-     * @param errorFuncHandle function that is used for error handling in a format of function(error)
-     * @param connectFunctionHandle function this is called when connection is established in a format: function(connection). Connection can be either {JMSConnection} or {AmqpConnection}
+     * @param connectionInfo {ConnectionInfo} Connection info object that should contain url, username and password properties
+     * @param errorFuncHandle {function} function that is used for error handling in a format of function(error)
+     * @param connectFunctionHandle {function} function this is called when connection is established in a format: function(ConnectionObject).
      */
     JavascriptUniversalClient.connect = function (connectionInfo, errorFunctionHandle, connectedFunctionHandle) {
         if (!connectionInfo || (typeof connectionInfo!=='object')){
