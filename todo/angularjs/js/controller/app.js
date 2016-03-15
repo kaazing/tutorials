@@ -158,6 +158,6 @@ angular.module("webSocketApp", [])
 
         $( window ).unload(function() {
             // TODO: Disconnect
-            $scope.client.disconnect();
+            $scope.client.close();
         });
     });

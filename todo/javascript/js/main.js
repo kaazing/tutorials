@@ -198,7 +198,7 @@ $(document).ready(function () {
 		});
         $( window ).unload(function() {
             // TODO: Disconnect
-            client.disconnect();
+            client.close();
         });
 
     });
