@@ -1,0 +1,60 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+version = '1.0'
+mainClassName = 'com.kaazing.mqtt.pi.Application'
+repositories {
+    mavenCentral()
+    maven { 
+    	url "https://jitpack.io" 
+    }
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+' 
+    compile 'com.pi4j:pi4j-core:1.0'
+    compile 'com.pi4j:pi4j-gpio-extension:1.0'
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
+    compile 'com.github.kaazing:netx:960362cfd0252d3dcc964265725b162ba4ac7d94'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'org.slf4j:slf4j-simple:1.7.20'    
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName,
+            'Class-Path': configurations.runtime.files.collect {"$it.name"}.join(' ')
+    }
+}
+/*
+fatJar(type:Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Kaazing Raspberry PI MQTT Application',
+                   'Implementation-Version': version,
+                   'Main-Class': 'com.kaazing.mqtt.pi.Application'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+    
+}
+*/
+
+
+
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

@@ -48,3 +48,5 @@ todo/angularjs/node_modules/*
 todo/javascript/node_modules/*
 
 todomvc-angular/bower_components/*
+
+todomvc-angular/node_modules/*
