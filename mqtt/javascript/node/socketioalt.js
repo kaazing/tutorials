@@ -4,22 +4,43 @@
 var mqtt = require('mqtt');
 var url = require('url');
 
+var topics=[];
 var socket=function(cl){
 	var client = cl;
+
+	client.on('message', function (topic, message) {
+		console.log("Received message "+message.toString());
+		var arr=topic.split('/');
+		for(var i=0;i<topics.length;i++){
+			var t=topics[i];
+			var found=true;
+			for(var k=0;k<t.elements.length;k++){
+
+				if (t.elements[k]=='+'){
+					continue;
+				}
+				else if (t.elements[k]=="#"){
+					break;
+				}
+				if (t.elements[k]!=arr[k]){
+					found=false;
+					break;
+				}
+			}
+			if (found){
+				console.log("Sending to the Client message "+message.toString());
+				var cmd = JSON.parse(message.toString());
+				t.callback(cmd);
+			}
+		}
+	});
+
 	return {
 		on:function(endpoint, callback){
 			client.subscribe(endpoint);
+			var t={elements:endpoint.split("/"), callback:callback};
+			topics.push(t);
 			console.log('[*] Waiting for data on endpoint '+endpoint+'. To exit press CTRL+C');
-			client.on('message', function (topic, message) {
-				// message is Buffer
-				console.log("Received on ["+topic+"] message "+message.toString());
-
-				if (topic==endpoint){
-					console.log("Sending to the mqttClient message "+message.toString());
-					var cmd = JSON.parse(message.toString());
-					callback(cmd);
-				}
-			});
 		},
 		broadcast:{
 			emit:function(endpoint, cmd){

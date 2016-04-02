@@ -54,7 +54,6 @@ function processMessage(cmd) {
 	}
 }
 
-
 io.on('connection', function(s){
 	console.log('a user connected');
 	socket=s;

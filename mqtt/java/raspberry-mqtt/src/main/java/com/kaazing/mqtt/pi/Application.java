@@ -24,10 +24,8 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
 public class Application {
 	
-	private static String deviceName="deviceA";
-	private static String clientId = deviceName+"WsMQTT";
-	private static String topicListenName = "/Devices/"+deviceName+"/command";
-	private static String topicPublishName = "/Devices/"+deviceName+"/status";
+	private static String topicListenName = "/Devices/command";
+	private static String topicPublishName = "/Devices/status";
 	private static int qos = 2;
 	
 	private static boolean fShuttingDown=false;
@@ -36,8 +34,8 @@ public class Application {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws InterruptedException, ClientWrapperException, IOException {
-		if (args.length!=1){
-			System.err.println("Use com.kaazing.mqtt.pi.Application <broker url>");
+		if (args.length!=2){
+			System.err.println("Use com.kaazing.mqtt.pi.Application <broker url> <client id>");
 			System.exit(-1);
 		}
 		LOG.info("Configuring GPIO.");	
@@ -51,7 +49,9 @@ public class Application {
 		final GpioPinDigitalInput button = gpio.provisionDigitalInputPin(RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);
 		JSONParser parser = new JSONParser();
 		String brokerUrl = args[0];
-		LOG.info("Connecting to "+brokerUrl);
+		String clientId = args[1];
+		LOG.info("Connecting to "+brokerUrl+" with client ID "+clientId);
+		
 		final MqttClientWrapper client = new MqttClientWrapper(brokerUrl, clientId, true, new ClientListener() {
 
 			public void onMessage(String topic, MqttMessage message) {
@@ -61,6 +61,9 @@ public class Application {
 
 					Object payloadObject = parser.parse(payload);
 					JSONObject command = (JSONObject) payloadObject;
+					if (!command.get("clientId").equals(clientId)){
+						return;
+					}
 					String lightStatus = (String) command.get("maintenancelight");
 					if (lightStatus == null) {
 						LOG.error("Light status is not specified in the command: " + payload);
@@ -85,6 +88,7 @@ public class Application {
 
 		JSONObject command = new JSONObject();
 		command.put("button", "click");
+		command.put("clientId", clientId);
 		StringWriter out = new StringWriter();
 		command.writeJSONString(out);
 		String commandText = out.toString();
