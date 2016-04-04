@@ -64,9 +64,8 @@ The files that are specific for this reference implementation are:
 
 ## Installing and configuring Kaazing WebSocket Gateway and MQTT broker
 - Download Kaazing Gateway 5.0.0 from [Kaazing Community downloads page][11] 
-	**This package also contains AMQP server Apache QPID** see - [Apache QPID][12] for more information.
 - Unzip downloaded package to _\<your installation directory\>_
-- Copy [gateway-config.xml] to _\<your installation directory\>/conf_
+- Copy [gateway-config.xml](gateway-config.xml) to _\<your installation directory\>/conf_
 - You need to configure the gateway to bind to your IP address (not localhost). To do that
 	- Determine your IP address. If you have multiple network cards, make sure that you use the IP address of the card that is on the same subnet as Raspberry PI.
 	- Go to _\<your installation directory\>/kaazing-websocket-gateway-amqp-4.0.6/conf _
