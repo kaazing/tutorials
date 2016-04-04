@@ -17,6 +17,8 @@ Here are some links you may find helpful:
 * [Forums][7]
 * [Blog][8]
 * [FAQ][9]
+* [MQTT](http://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment)
+* [Raspberry PI with Java](http://eclipsesource.com/blogs/2014/05/01/programming-the-pi-with-eclipse-and-java/)
 
 
 _If you have other helpful links to share, or find any of the links above no longer work, please [let us know][10]._
@@ -44,6 +46,7 @@ Java application is written using [Paho Java MQTT client](https://projects.drogo
  
 ![Circuit Diagram for Raspberry PI component](raspberry-wiring.png?raw=true "Circuit Diagram for Raspberry PI component")
 
+For help with wiring, see [Raspberry PI Wiring Pins](https://projects.drogon.net/raspberry-pi/wiringpi/pins/)
 
 Server logic is implemented using NodeJS backend components that connects to MQTT server and receives all messages thus maintaining the current state of the items. Once the connection is established Web clients can obtain all the items in their current state by sending initialization request. Server component also receives the messages from the IoT device and, once the number of clicks reaches certain limit, makes a decision to request maintenance on the device as described about. 
 _Helper component that emulates socket.io behavior for backward compatibility with existing NodeJS socket.io implementations is located under **node/socketioalt.js**_
