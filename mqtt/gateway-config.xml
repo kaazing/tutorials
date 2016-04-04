@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gateway-config xmlns="http://xmlns.kaazing.org/2014/09/gateway">
+
+  <!-- =================================================================== -->
+
+  <properties>
+    <property>
+      <name>gateway.host</name>
+      <value>ADD YOUR IP ADDRESS HERE</value>
+    </property>
+    <property>
+      <name>gateway.port</name>
+      <value>8000</value>
+    </property>
+  </properties>
+
+  <!-- =================================================================== -->
+
+  <service>
+    <name>base-directory</name>
+    <description>Directory service for base files</description>
+    <accept>http://${gateway.host}:${gateway.port}/</accept>
+
+    <type>directory</type>
+
+    <properties>
+      <directory>/base</directory>
+      <welcome-file>index.html</welcome-file>
+      <error-pages-directory>/error-pages</error-pages-directory>
+      <options>indexes</options>
+    </properties>
+
+    <accept-options>
+        <tcp.bind>${gateway.port}</tcp.bind>
+    </accept-options>
+  </service>
+
+
+  <!-- =================================================================== -->
+
+  <service>
+    <name>mqtt-proxy</name>
+    <accept>ws://${gateway.host}:8080/mqtt</accept>
+    <connect>tcp://localhost:1883</connect>
+
+    <type>proxy</type>
+
+    <cross-site-constraint>
+      <allow-origin>*</allow-origin>
+    </cross-site-constraint>
+
+  </service>
+
+
+</gateway-config>
