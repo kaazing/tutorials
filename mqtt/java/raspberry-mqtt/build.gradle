@@ -30,22 +30,6 @@ jar {
             'Class-Path': configurations.runtime.files.collect {"$it.name"}.join(' ')
     }
 }
-/*
-fatJar(type:Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'Kaazing Raspberry PI MQTT Application',
-                   'Implementation-Version': version,
-                   'Main-Class': 'com.kaazing.mqtt.pi.Application'
-    }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-    
-}
-*/
-
-
-
 
 test {
     systemProperties 'property': 'value'
