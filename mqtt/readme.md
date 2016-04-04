@@ -1,4 +1,4 @@
-# Kaazing Javascript & AngularJS TodoMVC over MQTT Example including Java application for Raspberry PI
+# Kaazing Javascript & AngularJS TodoMVC and Java application for Raspberry PI using MQTT Example
 
 > Kaazing is the world's most scalable, secure, and robust WebSocket platform for real-time Web communication
 
