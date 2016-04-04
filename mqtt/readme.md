@@ -85,7 +85,7 @@ and replace them with your IP address
 	
 ## Running the application
 - Building JavaScript application
-	- Install NodeJS as specified at [NodeJS Site][https://nodejs.org/en/]
+	- Install NodeJS as specified at [NodeJS Site](https://nodejs.org/en/)
 	- Install required packages for JavaScript:
 
 	```bash
