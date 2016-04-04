@@ -92,7 +92,14 @@ angular.module('todomvc')
 		// Connect to WebSocket
 		window.WebSocket = Kaazing.Gateway.WebSocket;
 
-		$scope.mqttClient = new Paho.MQTT.Client("192.168.1.2", 8080, $scope.client);
+		var hostPort=window.location.search.replace("?", "").split("&")[0];
+		$scope.host=hostPort.split(":")[0];
+		$scope.port=parseInt(hostPort.split(":")[1]);
+
+		if (!$scope.host||!$scope.port){
+			alert("Usage http://<your host>:3000/?<gateway host>:<gateway port>!");
+		}
+		$scope.mqttClient = new Paho.MQTT.Client($scope.host, $scope.port, $scope.client);
 		// set callback handlers
 		// called when the mqttClient loses its connection
 		$scope.mqttClient.onConnectionLost = function(responseObject){
