@@ -75,7 +75,7 @@ The files that are specific for this reference implementation are:
 		_\<value>ADD YOUR IP ADDRESS HERE\</value>_
 and replace them with your IP address
 - Download and start MQTT broker.
-	- We use [Open Source Mosquitto Broker](http://mosquitto.org/); look [here](http://mosquitto.org/download/) for downloads and installation instruction
+	- We use [Open Source Mosquitto Broker](http://mosquitto.org/); look [here](http://mosquitto.org/download/) for downloads and installation instructions
 	- Open terminal window and start Mosquitto with verbose output. 
 	
 	```bash
