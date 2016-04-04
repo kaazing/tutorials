@@ -120,6 +120,7 @@ and replace them with your IP address
 - Start javascript application
 
 ```bash
+cd <application directory>/javascript
 node serverws.js
 ```
 
@@ -152,6 +153,7 @@ npm install socket.io
 - Start the application
 
 ```bash
+cd <application directory>/javascript
 node serversocketio.js
 ```
 
