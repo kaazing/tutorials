@@ -15,6 +15,8 @@ var maxClicks=10;
 
 var socket=null;
 function processMessage(cmd) {
+	if (cmd.clientID==="server")
+		return;
 	console.log("Command: " + cmd.command + ", Received: " + cmd);
 	if (cmd.command === "insert") {
 		todos.push(cmd.item);
@@ -109,7 +111,7 @@ function processDeviceMessage(cmd){
 				busy: false
 			};
 			todos.push(newTodo);
-			var cmd={command:"insert", item:newTodo};
+			var cmd={command:"insert", item:newTodo, clientID:"server"};
 			socket.emit("todomvc", cmd);
 		}
 		else{
