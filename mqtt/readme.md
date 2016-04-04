@@ -81,7 +81,9 @@ and replace them with your IP address
 - Make sure that you have Java 8 or greater installed
 - Open terminal window at _\<your installation directory\>/kaazing-websocket-gateway-amqp-4.0.6/bin_ and start gateway  
 
-		`./gateway.start`
+	```bash
+	./gateway.start
+	```
 	
 ## Running the application
 - Building JavaScript application
