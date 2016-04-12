@@ -9,6 +9,7 @@ This repository contains tutorials and samples of simple applications created fo
 * [Angular TodoMVC application using REST simulation][9] for AMQP broker created based on the TodoMVC AngularJS sample (see [TodoMVC website][1]).
 * [ReactJS TodoMVC application][10] for AMQP broker created based on the TodoMVC ReactJS sample (see [TodoMVC website][10]).
 
+All examples and tutorials are implemented using [Kaazing Universal Client Library](https://github.com/kaazing/universal-client).
 
 For more information about using Kaazing gateway and client development visit [http://developer.kaazing.com/][2]
 

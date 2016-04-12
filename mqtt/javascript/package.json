@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.3",
+    "angular-resource": "1.4.3",
+    "angular-route": "1.4.3",
+    "express": "^4.13.4",
+    "jquery": "^2.2.1",
+    "mqtt": "^1.7.4",
+    "todomvc-app-css": "^1.0.1",
+    "todomvc-common": "^1.0.0"
+  }
+}

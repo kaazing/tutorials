@@ -16,6 +16,7 @@ The Kaazing Universal Clients provide the facade for Kaazing-specific protocol/t
 ## Available Universal Clients
 (This list will grow as clients are added.)
 - [Universal Clients for JavaScript applications][1]
+- [Universal Clients for Java applications][2]
 
 ## Organization of the Universal Clients
 Regardless of the client technology, all of the clients are organized as shown on the following diagram:
@@ -23,5 +24,7 @@ Regardless of the client technology, all of the clients are organized as shown o
 ![][image-1]
 
 [1]:	https://github.com/kaazing/universal-client/tree/develop/javascript "Universal Clients for JavaScript applications"
+[2]:	https://github.com/kaazing/universal-client/tree/develop/javascript "Universal Clients for JavaScript applications"
+
 
 [image-1]:	images/UniversalClients.png "Universal Clients"

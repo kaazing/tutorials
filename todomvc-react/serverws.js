@@ -53,7 +53,7 @@ function processMessage(cmd) {
 io.on('connection', function(s){
 	console.log('a user connected');
 	socket=s;
-	s.on('todo', processMessage);
+	s.on('todomvc', processMessage);
 });
 
 http.listen(3000, function(){

@@ -318,27 +318,33 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
     
     var client=UniversalClientDef(protocol);
     var connectionInfo=null;
+    
+    var noLocal=true;
+    var TOPIC_PUB=null;
+    var	TOPIC_SUB=null;
     if (protocol=="amqp") {
         connectionInfo = {
-            URL: "ws://localhost:8001/amqp",
-            TOPIC_PUB: "todo",
-            TOPIC_SUB: "todo",
+            url: "ws://localhost:8001/amqp",
             username: "guest",
             password: "guest"
         };
+        TOPIC_PUB="todo";
+        TOPIC_SUB="todo";
     }
     else if (protocol=="jms") {
         connectionInfo = {
-            URL: "ws://localhost:8001/jms",
-            TOPIC_PUB: "/topic/Todo",
-            TOPIC_SUB: "/topic/Todo",
+            url: "ws://localhost:8001/jms",
             username: "",
             password: ""
         };
+        TOPIC_PUB="/topic/Todo";
+        TOPIC_SUB="/topic/Todo";
     }
     else{
         alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
     }
+   
+    var subscription={};
     ...
     $(document).ready(...)
 	```
@@ -406,9 +412,19 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
     $(document).ready(function () {
         $.get('data/todo.json', function( r ) {
             ...
+            // Set the logger function
+            client.loggerFuncHandle=logWebSocketMessage;
+            
+            var exceptionHandler=function(err){
+            	alert(err);
+            }
     
-            //TODO: Add code to connect
-            client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true, processReceivedCommand,function(err){alert(err);}, logWebSocketMessage, null);
+            client.connect(connectionInfo, exceptionHandler, function(connection){
+            	connection.subscribe(TOPIC_PUB, TOPIC_SUB,processReceivedCommand, noLocal, function(subscr){
+            				console.info("Subscription is created "+subscr);
+            				subscription=subscr;
+            	});
+            });
             
             $( window ).unload(function() {
                 // TODO: Disconnect
@@ -418,19 +434,23 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
 	...
 	```
 	
-	
+	First of all we use _loggerFuncHandle_ property to declare the external logger.
+	Then we declare the function to handle WebSockets errors and exceptions and establish the connection.
 	
 	As you can see we pass to the _connect_ function the following parameters
-		- URL
-		- user name
-		- user password 
+	    - Connection information that includes
+		    - URL
+		    - user name
+		    - user password
+		- function to process errors
+		- callback function that will return connection object that will be used to create __subscriptions__
+		     
+	Once connection is established, we use connection object to create _subscription_. We use _subscribe_ function with the following parameters:
 		- name of publishing endpoint 
 		- name of subscription endpoint - in our case it is the same as publishing
-		- true flag indicating that we do not want to receive our own messages
 		- function to receive and process messages
-		- function to process errors
-		- function to log WebSocket messages
-		- null instead of the function name to indicate that we do not need to do any post-connect initializations.
+		- noLocal flag (set to true) indicating that we do not want to receive our own messages
+		- callback function that will receive subscription object once it is created. In this function we will store the received object to a __subscription__ variable.
 		
 5. In order to send messages, all we need to do is add AngularUniversalClient.sendMessage(msg) to our $scope.sendCommand function
 	
@@ -439,7 +459,7 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
  
     var sendMessage=function(msg){
         // TODO: Add code to send messages
-        client.sendMessage(msg);
+        subscription.sendMessage(msg);
     }
     
     $(document).ready(...)
@@ -456,7 +476,19 @@ To make things easier, we are going to use [Kaazing Universal Client for Javascr
             ...
     
             //TODO: Add code to connect
-            client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true, processReceivedCommand,function(err){alert(err);}, logWebSocketMessage, null);
+            // Set the logger function
+            client.loggerFuncHandle=logWebSocketMessage;
+            
+            var exceptionHandler=function(err){
+            	alert(err);
+            }
+    
+            client.connect(connectionInfo, exceptionHandler, function(connection){
+            	connection.subscribe(TOPIC_PUB, TOPIC_SUB,processReceivedCommand, noLocal, function(subscr){
+            				console.info("Subscription is created "+subscr);
+            				subscription=subscr;
+            	});
+            });
             
             $( window ).unload(function() {
                 // TODO: Disconnect

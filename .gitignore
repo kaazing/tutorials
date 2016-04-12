@@ -46,3 +46,9 @@ todomvc-react/node_modules/classnames/index.js
 todo/angularjs/node_modules/*
 
 todo/javascript/node_modules/*
+
+todomvc-angular/bower_components/*
+
+todomvc-angular/node_modules/*
+
+mqtt/javascript/node_modules/*

@@ -4,17 +4,9 @@
 /**
  * Facade function that implements Kaazing WebSocket communications via JMS server
  * @param logInformation function that is used for logging events in a format of function(severity, message).
- * @returns {{JMSClient object that implements communication functions}}
- * @constructor
+ * @returns {JMSClient} object that implements communication functions
  */
 var jmsClientFunction=function(logInformation){
-    var queueName="client" + Math.floor(Math.random() * 1000000);
-    var routingKey="broadcastkey";
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-    var messageIdCounter = getRandomInt(1, 100000);
-
     var appId = (function () {
         var fmt = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
         var ret=fmt.replace(/[xy]/g, function (c) {
@@ -26,21 +18,146 @@ var jmsClientFunction=function(logInformation){
 
 
     var initialized=false;
+
      /**
-     * Provides communication services with JMS server. Created within jmsClientFunction constructor.
+     * Provides communication services with JMS server.
      * @class
-     * @name JMSClient
      */
+    var JMSClient = {connected:false, subscriptions:[]};
 
-    var JMSClient = {connected:false};
 
-    var messageReceivedFunc=null;
+	var createSubscriptionObject=function(session, topicPub, topicSub, noLocal, producer, consumer){
+		/**
+		 * Subscription object containing all information about subscription.
+		 * @class
+		 */
+		var SubscriptionObject = {
+			session:session,
+			producer:producer,
+			consumer:consumer,
+			topicPub:topicPub,
+			topicSub:topicSub,
+			noLocal:noLocal,
+			messagesToSend:[],
+			inSend:false,
+			subscribed:false,
+			closed:$.Deferred(),
+			sendMessageOverTheWire:function(){
+				var msg = this.messagesToSend.pop();
+				logInformation("sent","Sending message to "+this.topicPub+": " + msg, "sent");
+				var textMsg = this.session.createTextMessage(msg);
+				if (this.noLocal)
+					textMsg.setStringProperty("appId", appId);
+				var that=this;
+				this.producer.send(textMsg, function(){that.sendComplete(that)});
+			},
+			sendComplete:function(subscription) {
+				logInformation("INFO", "Send over "+subscription.topicPub+" is Complete");
+				if (subscription.messagesToSend.length > 0) {
+					logInformation("INFO", "Sending queued messages to "+subscription.topicPub+"...");
+					subscription.sendMessageOverTheWire();
+				}
+				else{
+					subscription.inSend = false;
+				}
+			},
+			/**
+			 * Sends messages to a publishing endpoint.
+			 * @param msg {object} Message to be sent. As messages are sent in a text format msg will be converted to JSON if it is not a string.
+			 */
+			sendMessage:function(msg){
+				if (typeof msg ==="object"){
+					msg=JSON.stringify(msg);
+				}
+				else{
+					handleException("Message ["+msg+"] to be sent to "+this.topicPub+" is not an object!");
+				}
+
+				try {
+					this.messagesToSend.push(msg);
+					if (this.inSend == false) {
+						logInformation("sent","Sending message to "+this.topicPub+": "+ msg, "sent");
+						this.inSend = true;
+						this.sendMessageOverTheWire();
+					}
+					else{
+						logInformation("sent","Queing message for "+this.topicPub+": " + msg, "sent");
+					}
+				} catch (e) {
+					handleException(e);
+				}
+
+			},
+			/**
+			 * Closes the subscrpiption and releases all the resources.
+			 */
+			close:function(){
+				if (this.subscribed){
+					this.closed.resolve();
+				}
+				else{
+					this.producer.close(function(){
+						this.consumer.close(function(){
+							this.subscribed=false;
+							this.closed.resolve();
+						});
+					})
+				}
+			}
+		};
+		return SubscriptionObject;
+
+	}
+
+
+	var createConnectionObject=function(session, connection){
+		/**
+		 * Contains infomration about established connection.
+		 * @class
+		 */
+		var ConnectionObject = {
+			connection:connection,
+			session:session,
+			/**
+			 * Creates a subscription.
+			 * @param topicPub {string} name of the topic to publish
+			 * @param topicSub {string} name of the topic to subscribe
+			 * @param messageReceivedFunc {function} callback to receive messages in a format function(msg) where msg is expected to be a valid JSON
+			 * @param noLocal {boolean} if set to true and publishing and subscription topics are the same, the client will not receive its own messages
+			 * @param subscribedCallbackFunction {function} callback function if a format function(SubcriptionObject) to be called when SubsriptionObject is created.
+			 */
+			subscribe:function(topicPub, topicSub, messageReceivedFunc, noLocal, subscribedCallbackFunction){
+				var pubDest = this.session.createTopic(topicPub);
+				var producer = this.session.createProducer(pubDest);
+				logInformation("INFO","Producer for "+topicPub+" is ready! AppID=" + appId);
+				var subDest = this.session.createTopic(topicSub);
+				var consumer=null;
+				if (noLocal)
+					consumer = this.session.createConsumer(subDest, "appId<>'" + appId + "'");
+				else
+					consumer = session.createConsumer(subDest);
+				consumer.setMessageListener(function (message) {
+					var body=message.getText();
+					logInformation("DEBUG","Received from the topic "+topicSub+" "+body);
+					try{
+						body=JSON.parse(body);
+					}
+					catch(e){
+						logInformation("WARN","Object received from "+topicSub+" is not JSON");
+					}
+					messageReceivedFunc(body);
+				});
+				logInformation("INFO","Consumer for "+topicSub+" is ready!");
+				var subscription=createSubscriptionObject(session, topicPub, topicSub, noLocal, producer, consumer);
+				subscription.closed.resolve();
+				this.connection.subscriptions.push(subscription);
+				subscribedCallbackFunction(subscription);
+			}
+		};
+		return ConnectionObject;
+	}
+
 	var connectionEstablishedFunc=null;
-
-    var topicPub=null;
-    var topicSub=null;
-    var noLocalFlag=false;
-    var user=null;
     var errorFunction;
 
     var handleException = function (e) {
@@ -50,62 +167,23 @@ var jmsClientFunction=function(logInformation){
     }
     var connection=null;
     var session=null;
-    var producer=null;
-    var consumer=null;
 
-    var prepareSend = function () {
-        var dest = session.createTopic(topicPub);
-        producer = session.createProducer(dest);
-        logInformation("INFO","Producer is ready! AppID=" + appId);
-    }
+	/**
+	 * Connects to Kaazing WebSocket Gateway (AMQP or JMS)
+	 * @param connectionInfo {ConnectionInfo} Connection info object that should contain url, username and password properties
+	 * @param errorFuncHandle {function} function that is used for error handling in a format of function(error)
+	 * @param connectFunctionHandle {function} function this is called when connection is established in a format: function(ConnectionObject).
+	 */
+	JMSClient.connect=function(connectionInfo, errorFunctionHandle, connectedFunctionHandle){
+        errorFunction=errorFunctionHandle;
+		connectionEstablishedFunc=connectedFunctionHandle;
 
-    var prepareReceive = function (rcvFunction) {
-        var dest = session.createTopic(topicSub);
-        if (noLocalFlag)
-            consumer = session.createConsumer(dest, "appId<>'" + appId + "'");
-        else
-            consumer = session.createConsumer(dest);
-        consumer.setMessageListener(function (message) {
-            var body=message.getText();
-            logInformation("DEBUG","Received from the wire "+body);
-            try{
-                body=JSON.parse(body);
-            }
-            catch(e){
-                logInformation("WARN","Received object is not JSON");
-            }
-            rcvFunction(body);
-        });
-        logInformation("INFO","Consumer is ready!");
-    }
+        logInformation("INFO","CONNECTING TO: " + connectionInfo.url);
 
-    /**
-     * Connects to Kaazing WebSocket JMS Gateway
-     * @param url Connection URL
-     * @param username User name to be used to establish connection
-     * @param password User password to be used to establish connection
-     * @param topicP Name of the publishing endpoint - JMS topic used for publishing.
-     * @param topicS Name of the subscription endpoint - AMQP topic used for subscription
-     * @param noLocal Flag indicating whether the client wants to receive its own messages (true) or not (false). That flag should be used when publishing and subscription endpoints are the same.
-     * @param messageDestinationFuncHandle Function that will be used to process received messages from subscription endpoint in a format: function(messageBody)
-     * @param errorFuncHandle function that is used for error handling in a format of function(error)
-     * @param connectFunctionHandle function this is called when connection is established in a format: function()
-     */
-    JMSClient.connect=function(url,username, password, topicP, topicS, noLocal, messageDestinationFuncHandle, errorFuncHandle, connectFunctionHandle){
-        topicPub=topicP;
-        topicSub=topicS;
-        user=username;
-        errorFunction=errorFuncHandle;
-        messageReceivedFunc=messageDestinationFuncHandle;
-		connectionEstablishedFunc=connectFunctionHandle;
-
-        noLocalFlag=noLocal;
-        logInformation("INFO","CONNECTING TO: " + url);
-
-        var jmsConnectionFactory = new JmsConnectionFactory(url);
+        var jmsConnectionFactory = new JmsConnectionFactory(connectionInfo.url);
 
         try {
-            var connectionFuture = jmsConnectionFactory.createConnection(username, password, function () {
+            var connectionFuture = jmsConnectionFactory.createConnection(connectionInfo.username, connectionInfo.password, function () {
                     if (!connectionFuture.exception) {
                         try {
                             connection = connectionFuture.getValue();
@@ -117,12 +195,8 @@ var jmsClientFunction=function(logInformation){
 
                             connection.start(function () {
                                 logInformation("INFO","JMS session created");
-                                prepareSend();
-                                prepareReceive(messageReceivedFunc);
-                                JMSClient.connected=true;
-								if (typeof(connectionEstablishedFunc) != "undefined" && connectionEstablishedFunc!=null){
-									connectionEstablishedFunc();
-								}
+                                var connectionObject=createConnectionObject(session, JMSClient);
+                                connectedFunctionHandle(connectionObject);
                             });
                         }
                         catch (e) {
@@ -140,43 +214,19 @@ var jmsClientFunction=function(logInformation){
     }
 
     /**
-     * Sends messages to a publishing endpoint.
-     * @param msg Message to be sent. As messages are sent in a text format msg will be converted to JSON if it is not a string.
-     */
-    JMSClient.sendMessage=function(msg){
-        if (typeof msg ==="object"){
-            msg=JSON.stringify(msg);
-        }
-
-        var textMsg = session.createTextMessage(msg);
-        if (noLocalFlag)
-            textMsg.setStringProperty("appId", appId);
-        try {
-            var future = producer.send(textMsg, function () {
-                if (future.exception) {
-                    handleException(future.exception);
-                }
-            });
-        } catch (e) {
-            handleException(e);
-        }
-        logInformation("sent","Send command " + msg, "sent");
-    }
-
-    /**
-     * Disconnects from Kaazing WebSocket JMS Gateway
+     * Disconnects from Kaazing WebSocket JMS Gateway, closes all the subscription and releases all the resources.
      */
     JMSClient.disconnect=function(){
-        producer.close(function(){
-            consumer.close(function(){
-                session.close(function(){
-                    connection.close(function(){
+		for(var i=0;i<this.subscriptions.length;i++){
+			this.subscriptions[i].close();
+		}
+		$.when.apply($,this.subscriptions).then(function() {
+			session.close(function () {
+				connection.close(function () {
 
-                    });
-                });
-            });
-        });
-
+				});
+			});
+		});
     }
 
     return JMSClient;

@@ -110,37 +110,44 @@ var processReceivedCommand=function(cmd){
 }
 
 
-
 //TODO: Add code to create client
 var protocol=window.location.search.replace("?", "").split("&")[0];
 
 var client=UniversalClientDef(protocol);
 var connectionInfo=null;
+
+var noLocal=true;
+var TOPIC_PUB=null;
+var	TOPIC_SUB=null;
 if (protocol=="amqp") {
 	connectionInfo = {
-		URL: "ws://localhost:8001/amqp",
-		TOPIC_PUB: "todo",
-		TOPIC_SUB: "todo",
+		url: "ws://localhost:8001/amqp",
 		username: "guest",
 		password: "guest"
 	};
+	TOPIC_PUB="todo";
+	TOPIC_SUB="todo";
 }
 else if (protocol=="jms") {
 	connectionInfo = {
-		URL: "ws://localhost:8001/jms",
-		TOPIC_PUB: "/topic/Todo",
-		TOPIC_SUB: "/topic/Todo",
+		url: "ws://localhost:8001/jms",
 		username: "",
 		password: ""
 	};
+	TOPIC_PUB="/topic/Todo";
+	TOPIC_SUB="/topic/Todo";
 }
 else{
 	alert("Use: http://<host/port>/todo.html?<protocol>. Unknown protocol: "+protocol);
 }
 
+
+
+var subscription={};
+
 var sendMessage=function(msg){
 	// TODO: Add code to send messages
-	client.sendMessage(msg);
+	subscription.sendMessage(msg);
 }
 
 $(document).ready(function () {
@@ -175,10 +182,23 @@ $(document).ready(function () {
         });
 
 		//TODO: Add code to connect
-        client.connect(connectionInfo.URL, connectionInfo.username, connectionInfo.password, connectionInfo.TOPIC_PUB, connectionInfo.TOPIC_SUB, true, processReceivedCommand,function(err){alert(err);}, logWebSocketMessage, null);
+
+		// Set the logger function
+		client.loggerFuncHandle=logWebSocketMessage;
+
+		var exceptionHandler=function(err){
+			alert(err);
+		}
+
+		client.connect(connectionInfo, exceptionHandler, function(connection){
+			connection.subscribe(TOPIC_PUB, TOPIC_SUB,processReceivedCommand, noLocal, function(subscr){
+				console.info("Subscription is created "+subscr);
+				subscription=subscr;
+			});
+		});
         $( window ).unload(function() {
             // TODO: Disconnect
-            client.disconnect();
+            client.close();
         });
 
     });

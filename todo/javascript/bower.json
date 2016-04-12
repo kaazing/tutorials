@@ -8,6 +8,6 @@
   "dependencies": {
     "jquery":"",
     "bootstrap": "",
-	"kaazing-javascript-universal-client": "<1.0"
+	"kaazing-javascript-universal-client": ">=1.0 <2.0"
   }
 }
