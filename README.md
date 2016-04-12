@@ -16,6 +16,7 @@ For more information about using Kaazing gateway and client development visit [h
 For more information about brokers:
 - [AMQP Protocol][3]
 - [JMS][4]
+- [MQTT Protocol](https://github.com/mqtt/mqtt.github.io/wiki)
 
 [1]:	http://todomvc.com/
 [2]:	http://developer.kaazing.com/
