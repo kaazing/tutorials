@@ -28,13 +28,6 @@ function processMessage(cmd) {
 				index = i;
 			}
 		}
-
-		for (var key in devices) {
-			var deviceInfo = devices[key];
-			if (deviceInfo.itemId==todos[index].id){
-				delete devices[key];
-			}
-		}
 		todos.splice(index, 1);
 	}
 	else if (cmd.command === "update") {
