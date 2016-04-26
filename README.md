@@ -10,6 +10,7 @@ This repository contains tutorials and samples of simple applications created fo
 	* [Angular TodoMVC application using REST simulation][9] for AMQP broker created based on the TodoMVC AngularJS sample (see [TodoMVC website][1]).
 	* [ReactJS TodoMVC application][10] for AMQP broker created based on the TodoMVC ReactJS sample (see [TodoMVC website][10]).
 * [MQTT Example](https://github.com/kaazing/tutorials/tree/develop/mqtt) with Kaazing WebSockets and [Eclipse Paho Library](http://www.eclipse.org/paho/)
+* [Bouncy Ball Sample](https://github.com/kaazing/tutorials/tree/develop/bouncy) demonstrating Bouncy Ball being shared between multiple screens.
 
 For more information about using Kaazing gateway and client development visit [http://developer.kaazing.com/][2]
 
