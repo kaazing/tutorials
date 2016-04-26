@@ -1,13 +1,15 @@
-var connection;
-var session;
-var consumers = [];
-var subscribers = [];
-var inTransaction;
-var locationURI;
+var host="192.168.6.153";
+var port=8001;
+
 
 var destination = "/topic/bouncy";
 var message = "";
-var locationURI = "ws://localhost:8001/jms";
+var locationURI = "ws://"+host+":"+port+"/jms";
+
+var connection;
+var session;
+var consumers = [];
+
 
 function createDestination(name, session) {
 	if (name.indexOf("/topic/") == 0) {
