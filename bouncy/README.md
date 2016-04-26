@@ -31,6 +31,7 @@ and replace them with
 
 ## Installing and running the demo
 - Install the necessary JavaScript components
+
     ```
     cd <application directory>
     npm install
@@ -38,12 +39,13 @@ and replace them with
 - Open <application directory>/js/bouncy.js and set the value of _host_ variable to the host your application is running on. 
     **Node** If you modified the port settings of the gateway by changing the value of _gateway.extras.port_ property, you will need to also modify the value of _port_ variable in bouncy.js
 - Start NodeJS application 
+
     ```
     node index.js
     ```
-- Use a browser on a desctop to open http://localhost:3000. DON'T move your mouse over the rectangles in the sidewall.
+- Use a browser on a desktop to open http://localhost:3000. DON'T move your mouse over the rectangles in the sidewall.
 - Open the same URL in a mobile device.
 - Hold the device up to the screen next to the browser image.
 - On the phone, press the joining wall. Ball will go from one screen to another.
-  _Note_ Alternative is to replace mobile device with another browser instance of tab pointing to the same URL.
+  **Note:** Alternative is to replace mobile device with another browser instance of tab pointing to the same URL.
 
