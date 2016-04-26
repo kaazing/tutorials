@@ -9,22 +9,24 @@ The application requires that the Kaazing WebSocket Gateway (KWG) JMS edition to
 	**This package also contains JMS server Apache ActiveMQ**, see - [Apache ActiveMQ][8] for more information.
 - Unzip downloaded package to _\<your installation directory\>_
 - **_By default Gateway is configured to restrict communications only to/from the scripts that are running on its embedded servers_**. This may not be convenient for Web Development. In order to remove this restriction, please:
-	- Goto _\<your installation directory\>/kaazing-websocket-gateway-jms-4.0.9/conf _
-	- Determine IP address of your host that is accessible from your mobile device
 	- Open __gateway\_config.xml__
-	    - Locate lines  
+	- Locate lines  
 		    _\<allow-origin>http://${gateway.hostname}:${gateway.extras.port}\</allow-origin>_
 and replace them with 
     		_\<allow-origin>
 	    	\*\</allow-origin>_
+- **_By default Gateway is configured to run on localhost with JMS service running on port 8001_**. This will not allow the demo to run from any other host. In order to change it:
+	- Determine IP address of your host that is accessible from your mobile device
+	- Goto _\<your installation directory\>/kaazing-websocket-gateway-jms-4.0.9/conf _
+	- Open __gateway\_config.xml__
         - Replace "localhost" with an IP address that's accessible from your mobile device.
           **Note** By default JMS service is configured to run on port 8001. Make sure that this port on your is accessible from the outside or change the port settings by modifying the value of _gateway.extras.port_ property.
-	- Make sure that you have Java 7 or greater installed
-	- Open terminal window at _\<your installation directory\>/kaazing-websocket-gateway-jms-4.0.9/bin _ and start gateway  
+- Make sure that you have Java 7 or greater installed
+- Open terminal window at _\<your installation directory\>/kaazing-websocket-gateway-jms-4.0.9/bin _ and start gateway  
 		`./gateway.start`
-	- Open terminal window at  _\<your installation directory\>/apache-activemq-5.10.0/bin _ and start Apache Active MQ JMS server  
+- Open terminal window at  _\<your installation directory\>/apache-activemq-5.10.0/bin _ and start Apache Active MQ JMS server  
 		`./activemq start`
-	- **Note**: to stop:
+- **Note**: to stop:
 		- Gateway: execute _Ctrl-C_ on the relevant terminal windows or just close it.
 		- Apache ActiveMQ JMS Server: open terminal window at  _\<your installation directory\>/apache-activemq-5.10.0/bin _ and execute  
 			`./activemq stop`
