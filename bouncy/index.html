@@ -1,0 +1,36 @@
+<!--
+
+Copyright (c) 2007-2011, Kaazing Corporation. All rights reserved.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<LINK rel="shortcut icon" href="images/favicon.ico">
+	<TITLE>Bouncy Ball</TITLE>
+
+	<!-- WebSocket -->
+	<script src="node_modules/kaazing-javascript-jms-client/node_modules/kaazing-javascript-gateway-client/WebSocket.js"
+			type="text/javascript"></script>
+	<!-- JMS -->
+	<script src="node_modules/kaazing-javascript-jms-client/JmsClient.js" type="text/javascript"></script>
+	<!-- Logic -->
+	<script src="js/bouncy.js" type="text/javascript"></script>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="shortcut icon" href="images/favicon.ico"/>
+	<link rel="stylesheet" href="css/demo.css"/>
+	<link rel="stylesheet" href="css/bouncy.css"/>
+
+	<title>JavaScript JMS Messaging Demo</title>
+</head>
+<body onLoad="init()" style="background:none">
+<canvas id="myCanvas1">
+	<script>
+		var c1 = document.getElementById("myCanvas1");
+		c1.width = maxX1;
+		c1.height = maxY1;
+	</script>
+</canvas>
+</body>
+</html>

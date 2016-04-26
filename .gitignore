@@ -52,3 +52,4 @@ todomvc-angular/bower_components/*
 todomvc-angular/node_modules/*
 
 mqtt/javascript/node_modules/*
+bouncy/node_modules/*
